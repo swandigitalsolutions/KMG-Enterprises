@@ -11,7 +11,7 @@
 
   /* ---------- photo fallback (missing image files degrade gracefully) ---------- */
   (function () {
-    var imgs = document.querySelectorAll("img[data-photo]");
+    var imgs = document.querySelectorAll("img[data-photo], img[data-logo]");
     imgs.forEach(function (img) {
       function fail() { img.classList.add("is-fallback"); }
       img.addEventListener("error", fail);

@@ -159,6 +159,18 @@ body.cursor-ready .cursor-dot, body.cursor-ready .cursor-ring{ opacity:1; }
 .nav__brand{ display:flex; align-items:baseline; gap:.5rem; margin-right:auto; }
 .nav__brand-mark{ font-family:"Cormorant Garamond", serif; font-weight:700; font-size:1.5rem; letter-spacing:.14em; color:var(--gold-soft); }
 .nav__brand-sub{ font-family:"Marcellus", serif; font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ink-mute); }
+
+/* brand logo (drop-in at assets/img/logo.png; falls back to the text lockup) */
+.nav__brand-logo{ height:40px; width:auto; border-radius:9px; border:1px solid var(--line); box-shadow:0 8px 20px -10px rgba(0,0,0,.6); }
+.nav__brand-logo.is-fallback{ display:none; }
+.nav__brand-logo:not(.is-fallback) ~ .nav__brand-mark,
+.nav__brand-logo:not(.is-fallback) ~ .nav__brand-sub{ display:none; }
+.preloader__logo{ width:min(260px,64vw); height:auto; border-radius:16px; box-shadow:0 30px 80px -24px rgba(0,0,0,.8); }
+.preloader__logo.is-fallback{ display:none; }
+.preloader__logo:not(.is-fallback) ~ .preloader__mark{ display:none; }
+.footer__logo{ height:70px; width:auto; border-radius:12px; border:1px solid var(--line); margin-bottom:1rem; box-shadow:0 14px 34px -16px rgba(0,0,0,.6); }
+.footer__logo.is-fallback{ display:none; }
+.footer__logo:not(.is-fallback) ~ .footer__mark{ display:none; }
 .nav__links{ display:flex; gap:1.6rem; }
 .nav__links a{ font-family:"Marcellus", serif; font-size:.82rem; letter-spacing:.1em; color:var(--ink-dim); position:relative; padding:.2rem 0; }
 .nav__links a::after{ content:""; position:absolute; left:0; bottom:-2px; width:0; height:1px; background:var(--gold); transition:width .4s var(--ease); }

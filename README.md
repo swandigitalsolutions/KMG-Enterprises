@@ -43,6 +43,13 @@ kmg-enterprises/
 - Fully responsive; respects `prefers-reduced-motion`; graceful fallback if WebGL
   is unavailable.
 
+## Logo
+
+Save the company logo as **`assets/img/logo.png`** (a version with a transparent
+or trimmed background works best). It then appears in the nav bar, the loading
+screen and the footer. Until the file exists, the site falls back to the "KMG
+Temple Stone" text lockup automatically.
+
 ## Adding your photos
 
 Drop the parking / paving photos into `assets/img/parking/` named
