@@ -1,0 +1,20 @@
+KMG ENTERPRISES — parking / paving photos
+=========================================
+
+Save the 8 parking-stone photos into THIS folder with these exact names
+(JPG, as large / high-resolution as you have — 1600px wide or more is ideal):
+
+  parking-1.jpg   Hexagon paver driveway (modern white house)
+  parking-2.jpg   Stone-slab pathway with green grass joints
+  parking-3.jpg   Brick-bond grey paver courtyard (wooden gate)
+  parking-4.jpg   Grey granite slab walkway with shrubs
+  parking-5.jpg   Large-format grey paver driveway (dark-trim house)
+  parking-6.jpg   White square pavers with green grass grid
+  parking-7.jpg   Illuminated paver driveway at dusk (bollard lights)
+  parking-8.jpg   Grey square pavers with gravel joints (brown house)
+
+The website already links to these names. Until the files are added,
+each slot shows a stone-texture placeholder automatically — nothing breaks.
+
+You can also add temple / factory photos in ..\temple\ as
+temple-1.jpg ... temple-6.jpg (see the Gallery section markup).
