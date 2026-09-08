@@ -154,7 +154,7 @@
     if ("outputEncoding" in renderer) renderer.outputEncoding = THREE.sRGBEncoding;
 
     var scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0b0b0f, 0.03);
+    scene.fog = new THREE.FogExp2(0x1c1a19, 0.028);
 
     var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 260);
 
@@ -185,7 +185,7 @@
 
     var ground = new THREE.Mesh(
       new THREE.CircleGeometry(80, 64),
-      new THREE.MeshStandardMaterial({ color: 0x121016, roughness: 1, metalness: 0 })
+      new THREE.MeshStandardMaterial({ color: 0x252019, roughness: 1, metalness: 0 })
     );
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -0.02;
@@ -304,7 +304,7 @@
 
     var floor = new THREE.Mesh(
       new THREE.CircleGeometry(12, 48),
-      new THREE.MeshStandardMaterial({ color: 0x14121a, roughness: 1 })
+      new THREE.MeshStandardMaterial({ color: 0x241f1c, roughness: 1 })
     );
     floor.rotation.x = -Math.PI / 2;
     floor.position.y = -1.7;
