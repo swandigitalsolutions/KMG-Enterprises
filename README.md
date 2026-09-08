@@ -50,16 +50,18 @@ or trimmed background works best). It then appears in the nav bar, the loading
 screen and the footer. Until the file exists, the site falls back to the "KMG
 Temple Stone" text lockup automatically.
 
-## Adding your photos
+## Photos
 
-Drop the parking / paving photos into `assets/img/parking/` named
-`parking-1.jpg` … `parking-8.jpg` (mapping is in
-`assets/img/parking/PLACE-PHOTOS-HERE.txt`). They appear automatically in the
-**Parking** gallery section, the Products card, the Projects strip and the main
-Gallery. Until a file exists, that slot shows a stone-texture placeholder — nothing
-breaks.
+- **`assets/img/parking/parking-1.jpg … parking-8.jpg`** — real parking / paving
+  project photos, live in the Parking gallery, Products card, Projects strip and
+  main Gallery.
+- **`assets/img/factory/factory-1.jpg … factory-5.jpg`** — stone-yard / cut-slab
+  photos, live in the Stone Factory section, the Temple Stones card and the Gallery.
 
-Use high-resolution files (1600 px wide or more) so they stay crisp on HD screens.
+To swap any photo, overwrite the file keeping the same name. Missing files fall
+back to a stone-texture placeholder automatically — nothing breaks. Use
+high-resolution files (1600 px wide or more) so they stay crisp on HD screens.
+Still to add: completed-temple photographs.
 
 ## Still to fill in (currently shown as gold placeholders)
 
