@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — KMG Enterprises
+  Single-page site: the home URL plus its main in-page sections.
+  Replace the domain with your live domain and update <lastmod> on
+  each content change, then submit this file in Google Search Console.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://swandigitalsolutions.github.io/KMG-Enterprises/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://swandigitalsolutions.github.io/KMG-Enterprises/assets/img/logo.png</image:loc>
+      <image:title>KMG Enterprises — temple stone &amp; construction</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://swandigitalsolutions.github.io/KMG-Enterprises/assets/img/parking/parking-1.jpg</image:loc>
+      <image:title>Hexagon paver driveway by KMG Enterprises</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://swandigitalsolutions.github.io/KMG-Enterprises/assets/img/factory/factory-1.jpg</image:loc>
+      <image:title>KMG Enterprises stone factory — finished temple stone products</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://swandigitalsolutions.github.io/KMG-Enterprises/#products</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://swandigitalsolutions.github.io/KMG-Enterprises/#parking-gallery</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://swandigitalsolutions.github.io/KMG-Enterprises/#services</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://swandigitalsolutions.github.io/KMG-Enterprises/#contact</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>

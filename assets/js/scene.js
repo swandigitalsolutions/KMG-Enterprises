@@ -13,13 +13,61 @@
     return;
   }
 
+  /* ---------- procedural stone texture (diffuse + bump) ----------
+     One canvas, reused by every stone material — gives the flat
+     procedural geometry a believable weathered-granite surface
+     without shipping any image files. */
+  var _stoneTex = null;
+  function stoneTexture() {
+    if (_stoneTex) return _stoneTex;
+    var S = 256;
+    var c = document.createElement("canvas");
+    c.width = c.height = S;
+    var x = c.getContext("2d");
+    x.fillStyle = "#b9ab92";
+    x.fillRect(0, 0, S, S);
+    /* mineral speckle */
+    for (var i = 0; i < 4200; i++) {
+      var g = 150 + ((Math.random() * 90) | 0);
+      var a = 0.04 + Math.random() * 0.16;
+      x.fillStyle = "rgba(" + g + "," + (g - 12) + "," + (g - 30) + "," + a + ")";
+      var r = Math.random() * 1.7;
+      x.fillRect(Math.random() * S, Math.random() * S, r, r);
+    }
+    /* soft blotches for tonal variation */
+    for (var j = 0; j < 26; j++) {
+      var rad = 12 + Math.random() * 44;
+      var grd = x.createRadialGradient(Math.random() * S, Math.random() * S, 0, Math.random() * S, Math.random() * S, rad);
+      grd.addColorStop(0, "rgba(90,78,60," + (0.05 + Math.random() * 0.09).toFixed(3) + ")");
+      grd.addColorStop(1, "rgba(90,78,60,0)");
+      x.fillStyle = grd;
+      x.fillRect(0, 0, S, S);
+    }
+    /* a few chisel hairlines */
+    x.strokeStyle = "rgba(60,50,38,.20)";
+    for (var k = 0; k < 18; k++) {
+      x.lineWidth = Math.random() * 1.2;
+      x.beginPath();
+      x.moveTo(Math.random() * S, Math.random() * S);
+      x.lineTo(Math.random() * S, Math.random() * S);
+      x.stroke();
+    }
+    var t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.repeat.set(2, 2);
+    t.anisotropy = 4;
+    _stoneTex = t;
+    return t;
+  }
+
   /* ---------- shared materials ---------- */
   function mats() {
+    var tex = stoneTexture();
     return {
-      stone: new THREE.MeshStandardMaterial({ color: 0xbcae95, roughness: 0.96, metalness: 0.02, flatShading: true }),
-      stoneDark: new THREE.MeshStandardMaterial({ color: 0x6f6455, roughness: 1.0, metalness: 0.0, flatShading: true }),
-      stoneWarm: new THREE.MeshStandardMaterial({ color: 0xcdb98f, roughness: 0.85, metalness: 0.03, flatShading: true }),
-      gold: new THREE.MeshStandardMaterial({ color: 0xe8b84b, roughness: 0.5, metalness: 0.28, flatShading: true, emissive: 0x3a2a08, emissiveIntensity: 0.5 })
+      stone: new THREE.MeshStandardMaterial({ color: 0xbcae95, roughness: 0.94, metalness: 0.02, map: tex, bumpMap: tex, bumpScale: 0.03 }),
+      stoneDark: new THREE.MeshStandardMaterial({ color: 0x6f6455, roughness: 1.0, metalness: 0.0, map: tex, bumpMap: tex, bumpScale: 0.045 }),
+      stoneWarm: new THREE.MeshStandardMaterial({ color: 0xcdb98f, roughness: 0.82, metalness: 0.03, map: tex, bumpMap: tex, bumpScale: 0.025 }),
+      gold: new THREE.MeshStandardMaterial({ color: 0xe8b84b, roughness: 0.32, metalness: 0.85, emissive: 0x3a2a08, emissiveIntensity: 0.45 })
     };
   }
 
@@ -152,17 +200,21 @@
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     if ("outputEncoding" in renderer) renderer.outputEncoding = THREE.sRGBEncoding;
+    if ("toneMapping" in renderer) {
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.05;
+    }
 
     var scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x1c1a19, 0.028);
+    scene.fog = new THREE.FogExp2(0x1c1a19, 0.026);
 
     var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 260);
 
-    var hemi = new THREE.HemisphereLight(0x9fb2d8, 0x181209, 0.62);
+    var hemi = new THREE.HemisphereLight(0x9fb2d8, 0x181209, 0.42);
     scene.add(hemi);
-    scene.add(new THREE.AmbientLight(0xffe9cf, 0.18));
+    scene.add(new THREE.AmbientLight(0xffe9cf, 0.14));
 
-    var key = new THREE.DirectionalLight(0xffe4b0, 2.05);
+    var key = new THREE.DirectionalLight(0xffdca6, 2.7);
     key.position.set(14, 20, 10);
     key.castShadow = true;
     key.shadow.mapSize.set(1024, 1024);
@@ -175,7 +227,7 @@
     key.shadow.bias = -0.0006;
     scene.add(key);
 
-    var rim = new THREE.DirectionalLight(0xffab45, 1.15);
+    var rim = new THREE.DirectionalLight(0xff9a3c, 1.5);
     rim.position.set(-16, 8, -12);
     scene.add(rim);
 
@@ -193,7 +245,8 @@
     scene.add(ground);
 
     var temple = buildTemple();
-    temple.position.y = -1.2;
+    temple.position.y = -2;
+    temple.scale.setScalar(0.82);
     scene.add(temple);
 
     var dust = makeDust(280);
@@ -201,8 +254,8 @@
 
     /* orbit state — target offset left so the temple sits right-of-centre */
     var isNarrow = window.matchMedia("(max-width: 860px)").matches;
-    var target = new THREE.Vector3(isNarrow ? 0 : -5.5, 7, 0);
-    var theta = 0.6, phi = 1.16, radius = isNarrow ? 46 : 41;
+    var target = new THREE.Vector3(isNarrow ? 0 : -4.5, 8.5, 0);
+    var theta = 0.6, phi = 1.14, radius = isNarrow ? 54 : 49;
     var tTheta = 0.6, tPhi = 1.14;
     var dragging = false, lx = 0, ly = 0, idle = 0;
     var scrollF = 0;
@@ -282,6 +335,10 @@
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     if ("outputEncoding" in renderer) renderer.outputEncoding = THREE.sRGBEncoding;
+    if ("toneMapping" in renderer) {
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.1;
+    }
 
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);

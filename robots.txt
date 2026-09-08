@@ -1,0 +1,10 @@
+# robots.txt — KMG Enterprises
+# Replace the domain below with your live domain once registered.
+
+User-agent: *
+Allow: /
+Disallow: /assets/img/parking/PLACE-PHOTOS-HERE.txt
+
+# Block nothing else — this is a single-page marketing site.
+
+Sitemap: https://swandigitalsolutions.github.io/KMG-Enterprises/sitemap.xml

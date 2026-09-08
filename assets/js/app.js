@@ -66,23 +66,49 @@
     });
   }
 
-  /* ---------- reveal on scroll ---------- */
-  var reveals = document.querySelectorAll(".reveal");
+  /* ---------- scroll progress bar ---------- */
+  var progress = document.getElementById("scrollProgress");
+  if (progress && !reduced) {
+    var pTick = false;
+    window.addEventListener("scroll", function () {
+      if (pTick) return;
+      pTick = true;
+      requestAnimationFrame(function () {
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        var p = max > 0 ? h.scrollTop / max : 0;
+        progress.style.transform = "scaleX(" + p.toFixed(4) + ")";
+        pTick = false;
+      });
+    }, { passive: true });
+  }
+
+  /* ---------- reveal on scroll (staggered, directional, pop grids) ---------- */
+  var POP_CONTAINERS = ".cards, .cards--3, .cols-2, .feature-grid, .pgallery, .gallery, .values, .stat-grid";
+  document.querySelectorAll(POP_CONTAINERS).forEach(function (grid) {
+    grid.setAttribute("data-stagger", "");
+    grid.classList.add("pop-grid");
+    Array.prototype.forEach.call(grid.children, function (child, i) {
+      child.style.setProperty("--i", i % 8);
+      /* the grid drives the entrance; drop the per-item observer target */
+      child.classList.remove("reveal");
+    });
+  });
+
+  var reveals = document.querySelectorAll(".reveal, [data-stagger]");
   if ("IntersectionObserver" in window && !reduced) {
     var ro = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.style.transitionDelay = (Math.min(en.target.dataset.delay || 0, 300)) + "ms";
-          en.target.classList.add("is-visible");
-          ro.unobserve(en.target);
-        }
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var sibs = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+        var delay = el.hasAttribute("data-stagger") ? 0 : Math.min((sibs % 4) * 90, 320);
+        el.style.setProperty("--reveal-delay", delay + "ms");
+        el.classList.add("is-visible");
+        ro.unobserve(el);
       });
-    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
-    reveals.forEach(function (el, i) {
-      var siblings = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
-      el.dataset.delay = (siblings % 4) * 70;
-      ro.observe(el);
-    });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    reveals.forEach(function (el) { ro.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
   }
@@ -179,6 +205,37 @@
       });
     }, { threshold: 0.4 });
     sections.forEach(function (s) { navIO.observe(s); });
+  }
+
+  /* ---------- hero content parallax (subtle, gpu-cheap) ---------- */
+  var heroContent = document.querySelector(".hero__content");
+  var heroSection = document.getElementById("home");
+  if (heroContent && heroSection && !reduced && finePointer) {
+    var hTick = false;
+    window.addEventListener("scroll", function () {
+      if (hTick) return;
+      hTick = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y < window.innerHeight) {
+          var k = y / window.innerHeight;
+          heroContent.style.transform = "translate3d(0," + (k * 60).toFixed(1) + "px,0)";
+          heroContent.style.opacity = (1 - k * 1.15).toFixed(3);
+        }
+        hTick = false;
+      });
+    }, { passive: true });
+  }
+
+  /* ---------- pointer-reactive glow on premium cards ---------- */
+  if (finePointer && !reduced) {
+    document.querySelectorAll(".card, .panel, .feature").forEach(function (el) {
+      el.addEventListener("pointermove", function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%");
+        el.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
+      });
+    });
   }
 
   /* ---------- enquiry form → WhatsApp ---------- */
