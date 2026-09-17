@@ -1,10 +1,13 @@
 # robots.txt — KMG Enterprises
-# Replace the domain below with your live domain once registered.
+# Single-page marketing site; everything is crawlable.
+# Update the Sitemap URL if a custom domain is connected.
 
 User-agent: *
 Allow: /
-Disallow: /assets/img/parking/PLACE-PHOTOS-HERE.txt
 
-# Block nothing else — this is a single-page marketing site.
+# Housekeeping files with no search value
+Disallow: /photos/
+Disallow: /assets/img/parking/PLACE-PHOTOS-HERE.txt
+Disallow: /DEPLOY.md
 
 Sitemap: https://swandigitalsolutions.github.io/KMG-Enterprises/sitemap.xml

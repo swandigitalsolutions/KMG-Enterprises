@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#1c1a19" media="(prefers-color-scheme: dark)" />
-<meta name="theme-color" content="#1c1a19" />
-<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#f7f2e9" />
+<meta name="color-scheme" content="light" />
 
 <!-- ============================================================
      SITE URL — replace every occurrence of this domain with your
@@ -25,7 +24,9 @@
 
 <!-- Geo / local SEO -->
 <meta name="geo.region" content="IN" />
-<meta name="geo.placename" content="India" />
+<meta name="geo.placename" content="Karnataka, India" />
+<meta name="geo.position" content="13.302335;77.657150" />
+<meta name="ICBM" content="13.302335, 77.657150" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -33,7 +34,10 @@
 <meta property="og:title" content="KMG Enterprises — From Stone to Temple, with Tradition &amp; Precision" />
 <meta property="og:description" content="Temple construction, temple stone manufacturing, stone carving and parking / paving stones — powered by our own stone factory. Projects across India." />
 <meta property="og:url" content="https://swandigitalsolutions.github.io/KMG-Enterprises/" />
-<meta property="og:image" content="https://swandigitalsolutions.github.io/KMG-Enterprises/assets/img/logo.png" />
+<meta property="og:image" content="https://swandigitalsolutions.github.io/KMG-Enterprises/assets/img/og-cover.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:alt" content="KMG Enterprises — temple stone &amp; construction" />
 <meta property="og:locale" content="en_IN" />
 
@@ -41,7 +45,8 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="KMG Enterprises — Temple Construction &amp; Stone Manufacturing" />
 <meta name="twitter:description" content="Temple construction, temple stone, stone carving and parking stones from our own stone factory. Pan-India." />
-<meta name="twitter:image" content="https://swandigitalsolutions.github.io/KMG-Enterprises/assets/img/logo.png" />
+<meta name="twitter:image" content="https://swandigitalsolutions.github.io/KMG-Enterprises/assets/img/og-cover.jpg" />
+<meta name="twitter:image:alt" content="KMG Enterprises — a completed granite temple with carved gopuram" />
 
 <!-- ============================================================
      GOOGLE SEARCH CONSOLE — verification.
@@ -56,18 +61,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-<link rel="preload" as="image" href="assets/img/gallery/kmg-02.jpeg" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/img/site/hero-temple.jpg" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/style.css?v=395af0ed" />
 <link rel="manifest" href="site.webmanifest" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%95%3C/text%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="assets/img/logo.png" />
 
 <!-- ============================================================
      STRUCTURED DATA (JSON-LD) — Organization / LocalBusiness,
-     Website, service catalogue and FAQ. Fill in the [ pending ]
-     values (email, street address, geo, opening hours, social
-     profiles) as they become available for richer results.
+     Website, service catalogue and FAQ.
      ============================================================ -->
 <script type="application/ld+json">
 {
@@ -105,9 +108,14 @@
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "IN",
-        "addressRegion": "India",
-        "streetAddress": "[ pending ]"
+        "addressRegion": "Karnataka"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 13.302335,
+        "longitude": 77.657150
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=13.302334785461426,77.65715026855469",
       "sameAs": [],
       "makesOffer": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Temple Construction" } },
@@ -193,6 +201,8 @@
     <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21h18M4 21V9l6 4V9l6 4 2-9h1v18M8 21v-4M12 21v-4M16 21v-4"/></symbol>
     <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M15.8 2.7a1 1 0 0 1 1.4 0l4.1 4.1a1 1 0 0 1 0 1.4L8.2 21.3a1 1 0 0 1-1.4 0l-4.1-4.1a1 1 0 0 1 0-1.4zM7 17l-1.5-1.5M10 14l-1.5-1.5M13 11l-1.5-1.5M16 8l-1.5-1.5"/></symbol>
     <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.9M15 3.1a4 4 0 0 1 0 7.8"/><circle cx="9" cy="7" r="4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20.6l1.6-4.9A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
     <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 0 0 3-3M13 14l2.5 2.5a1 1 0 0 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 0 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7 .9M21 4l-3 1.5M3 12l4.5-4.5"/></symbol>
     <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16zM3.3 7 12 12l8.7-5M12 22V12"/></symbol>
@@ -224,13 +234,14 @@
       <nav class="nav__links" id="navLinks">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#founder">Founder</a>
+        <a href="#team">Our Team</a>
         <a href="#products">Products</a>
         <a href="#parking-gallery">Parking</a>
         <a href="#factory">Factory</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
         <a href="#gallery">Gallery</a>
+        <a href="#collections">Collections</a>
         <a href="#contact">Contact</a>
       </nav>
       <a href="#contact" class="btn btn--gold nav__cta">Get a Quote</a>
@@ -243,7 +254,7 @@
     <!-- HERO -->
     <section class="hero" id="home">
       <div class="hero__media" aria-hidden="true">
-        <img data-photo src="assets/img/gallery/kmg-02.jpeg" alt="Temple design render showing a carved stone gopuram and entrance" fetchpriority="high" decoding="async" />
+        <img data-photo src="assets/img/site/hero-temple.jpg" alt="" fetchpriority="high" decoding="async" />
       </div>
       <div class="hero__veil" aria-hidden="true"></div>
       <div class="hero__content">
@@ -309,26 +320,30 @@
     </section>
 
     <!-- FOUNDER -->
-    <section class="section section--tint" id="founder">
-      <div class="wrap grid-2 grid-2--portrait">
-        <div class="reveal">
-          <div class="founder-card" data-tilt>
-            <img data-photo src="assets/img/temple/founder.jpg" alt="Founder &amp; Managing Director of KMG Enterprises" loading="lazy" decoding="async" />
-            <div class="founder-emblem">
-              <div class="founder-emblem__ring"><span class="founder-emblem__mono">KMG</span></div>
-              <span class="founder-emblem__flourish">✦</span>
-              <p class="founder-emblem__role">Founder &amp; Managing Director</p>
-              <p class="founder-emblem__tag">Temple Construction · Stone Craft · Manufacturing</p>
-            </div>
-          </div>
+    <section class="section section--tint" id="team">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Our Team</p>
+          <h2 class="h2">The people behind the stone</h2>
+          <p class="section-head__lede">From the founder to the sthapathis and carvers on the floor — the craft at KMG is carried by the people who shape it.</p>
         </div>
-        <div class="reveal">
-          <p class="kicker">Founder</p>
-          <h2 class="h2">Leadership rooted in craft</h2>
-          <p class="role">Founder &amp; Managing Director · KMG Enterprises</p>
-          <p>KMG Enterprises was founded with a vision to build a trusted name in temple construction, stone craftsmanship and stone manufacturing. With a strong focus on quality, traditional architecture and customer satisfaction, the company continues to develop its capabilities and serve projects across India.</p>
-          <blockquote class="quote">To preserve India's traditional temple craftsmanship and create beautiful, lasting structures through quality stone and dedicated workmanship.</blockquote>
+        <div class="team-grid">
+          <figure class="team-card reveal">
+            <div class="team-card__photo"><img data-photo src="assets/img/team/founder.jpg" alt="Arvind Gowda KMG, Founder of KMG Enterprises" loading="lazy" decoding="async" /></div>
+            <figcaption>
+              <b>Arvind Gowda KMG</b>
+              <span class="team-card__role">Founder</span>
+            </figcaption>
+          </figure>
+          <figure class="team-card reveal">
+            <div class="team-card__photo"><img data-photo src="assets/img/team/rakesh-gowda.jpg" alt="Rakesh Gowda KMG, Managing Director of KMG Enterprises" loading="lazy" decoding="async" width="900" height="900" /></div>
+            <figcaption>
+              <b>Rakesh Gowda KMG</b>
+              <span class="team-card__role">Managing Director</span>
+            </figcaption>
+          </figure>
         </div>
+        <blockquote class="quote quote--center reveal">To preserve India's traditional temple craftsmanship and create beautiful, lasting structures through quality stone and dedicated workmanship.</blockquote>
       </div>
     </section>
 
@@ -362,7 +377,7 @@
 
         <div class="cols-2">
           <div class="card card--list reveal" data-tilt>
-            <h3 class="card__title">🛕 Temple Stones</h3>
+            <h3 class="card__title"><span class="ico-inline"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-temple"/></svg></span> Temple Stones</h3>
             <p>Stone components for traditional temple construction, cut and finished to project drawings.</p>
             <div class="tagcloud">
               <span>Temple pillars</span><span>Beams</span><span>Mandapam stones</span><span>Door frames</span>
@@ -370,24 +385,24 @@
               <span>Custom components</span>
             </div>
             <div class="photo-strip">
-              <img data-photo src="assets/img/gallery/kmg-05.jpeg" alt="Carved stone elephant detail" loading="lazy" decoding="async" />
-              <img data-photo src="assets/img/gallery/kmg-06.jpeg" alt="Decorative carved temple stonework" loading="lazy" decoding="async" />
-              <img data-photo src="assets/img/gallery/kmg-07.jpeg" alt="Temple architecture render" loading="lazy" decoding="async" />
-              <img data-photo src="assets/img/gallery/kmg-08.jpeg" alt="Completed carved stone temple structure" loading="lazy" decoding="async" />
+              <img data-photo src="assets/img/collections/pillar-bases.jpg" alt="Turned granite pillar bases stacked in the yard" loading="lazy" decoding="async" />
+              <img data-photo src="assets/img/collections/panel-ceiling.jpg" alt="Carved granite ceiling panel with a central rosette" loading="lazy" decoding="async" />
+              <img data-photo src="assets/img/collections/build-stockyard.jpg" alt="Dressed granite cornice blocks stacked in the stockyard" loading="lazy" decoding="async" />
+              <img data-photo src="assets/img/gallery/kmg-15.jpeg" alt="Carved temple wall course with elephant and Nataraja reliefs" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="card card--list reveal" data-tilt>
-            <h3 class="card__title">🏗️ Parking Stones</h3>
+            <h3 class="card__title"><span class="ico-inline"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg></span> Parking Stones</h3>
             <p>Quality parking and paving stones for residential, commercial and industrial projects. Bulk and project-specific orders available.</p>
             <div class="spec">
               <div class="spec__row"><span class="spec__k">Sizes (ft)</span><span class="spec__v">2×2 · 1×2 · 2×3 · 2×4 · 1×3 · 1×4</span></div>
               <div class="spec__row"><span class="spec__k">Thickness</span><span class="spec__v">20mm · 30mm · 40mm · 50mm</span></div>
             </div>
             <div class="photo-strip">
-              <img data-photo src="assets/img/gallery/kmg-09.jpeg" alt="Temple design render from the supplied project images" loading="lazy" decoding="async" />
-              <img data-photo src="assets/img/gallery/kmg-10.jpeg" alt="Carved stone temple facade" loading="lazy" decoding="async" />
-              <img data-photo src="assets/img/gallery/kmg-11.jpeg" alt="Stone temple entrance with carved pillars" loading="lazy" decoding="async" />
-              <img data-photo src="assets/img/gallery/kmg-12.jpeg" alt="Detailed temple stone relief" loading="lazy" decoding="async" />
+              <img data-photo src="assets/img/parking/parking-1.jpg" alt="Hexagon paver driveway in front of a modern home" loading="lazy" decoding="async" />
+              <img data-photo src="assets/img/parking/parking-2.jpg" alt="Parking stone paving laid in a residential courtyard" loading="lazy" decoding="async" />
+              <img data-photo src="assets/img/parking/parking-5.jpg" alt="Brick-bond paving across a wide driveway" loading="lazy" decoding="async" />
+              <img data-photo src="assets/img/parking/parking-6.jpg" alt="Grass-joint parking stone with turf between the pavers" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -403,14 +418,14 @@
           <p class="section-head__lede">Driveways, courtyards and pathways laid with KMG parking and paving stones — hexagon, brick-bond, large-format and grass-joint patterns.</p>
         </div>
         <div class="pgallery">
-          <figure class="pshot pshot--tall reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-13.jpeg" alt="Temple render with a carved entrance gateway" loading="lazy" decoding="async" /><figcaption>Temple entrance render</figcaption></figure>
-          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-14.jpeg" alt="White stone temple render under a blue sky" loading="lazy" decoding="async" /><figcaption>Temple elevation render</figcaption></figure>
-          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-15.jpeg" alt="Completed carved stone temple structure" loading="lazy" decoding="async" /><figcaption>Completed stone structure</figcaption></figure>
-          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-16.jpeg" alt="Temple wall with carved elephant relief" loading="lazy" decoding="async" /><figcaption>Carved temple wall</figcaption></figure>
-          <figure class="pshot pshot--wide reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-17.jpeg" alt="Large carved stone temple facade" loading="lazy" decoding="async" /><figcaption>Temple facade detail</figcaption></figure>
-          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-18.jpeg" alt="Carved stone sculpture" loading="lazy" decoding="async" /><figcaption>Carved stone sculpture</figcaption></figure>
-          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-19.jpeg" alt="Temple render with a detailed gopuram" loading="lazy" decoding="async" /><figcaption>Gopuram render</figcaption></figure>
-          <figure class="pshot pshot--wide reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-20.jpeg" alt="Stone mandapam with carved pillars" loading="lazy" decoding="async" /><figcaption>Carved stone mandapam</figcaption></figure>
+          <figure class="pshot pshot--tall reveal" data-tilt><img data-photo src="assets/img/parking/parking-1.jpg" alt="Hexagon paver driveway laid in front of a modern home" loading="lazy" decoding="async" /><figcaption>Hexagon paver driveway</figcaption></figure>
+          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/parking/parking-2.jpg" alt="Parking stone paving in a residential courtyard" loading="lazy" decoding="async" /><figcaption>Courtyard paving</figcaption></figure>
+          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/parking/parking-3.jpg" alt="Interlocking paver pathway beside a lawn" loading="lazy" decoding="async" /><figcaption>Interlocking pathway</figcaption></figure>
+          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/parking/parking-4.jpg" alt="Large-format stone slabs laid as a drive apron" loading="lazy" decoding="async" /><figcaption>Large-format slabs</figcaption></figure>
+          <figure class="pshot pshot--wide reveal" data-tilt><img data-photo src="assets/img/parking/parking-5.jpg" alt="Brick-bond paving pattern across a wide driveway" loading="lazy" decoding="async" /><figcaption>Brick-bond driveway</figcaption></figure>
+          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/parking/parking-6.jpg" alt="Grass-joint parking stone with turf between pavers" loading="lazy" decoding="async" /><figcaption>Grass-joint parking</figcaption></figure>
+          <figure class="pshot reveal" data-tilt><img data-photo src="assets/img/parking/parking-7.jpg" alt="Paved entrance approach in natural stone" loading="lazy" decoding="async" /><figcaption>Entrance approach</figcaption></figure>
+          <figure class="pshot pshot--wide reveal" data-tilt><img data-photo src="assets/img/parking/parking-8.jpg" alt="Stone paving detail showing joint lines and surface texture" loading="lazy" decoding="async" /><figcaption>Paving and joint detail</figcaption></figure>
         </div>
       </div>
     </section>
@@ -476,7 +491,7 @@
         </div>
 
         <div class="proj-strip reveal">
-          <img data-photo src="assets/img/gallery/kmg-29.jpeg" alt="Carved stone architectural project" loading="lazy" decoding="async" />
+          <img data-photo src="assets/img/gallery/kmg-29.jpeg" alt="Anantashayana relief panel carved in granite" loading="lazy" decoding="async" />
           <img data-photo src="assets/img/gallery/kmg-30.jpeg" alt="Completed stone temple project" loading="lazy" decoding="async" />
           <img data-photo src="assets/img/gallery/kmg-15.jpeg" alt="Completed carved stone structure" loading="lazy" decoding="async" />
           <img data-photo src="assets/img/gallery/kmg-16.jpeg" alt="Temple wall with carved relief" loading="lazy" decoding="async" />
@@ -514,7 +529,7 @@
         </div>
         <div class="cards cards--3">
           <article class="card card--big card--photo reveal" data-tilt>
-            <img data-photo src="assets/img/gallery/kmg-28.jpeg" alt="Temple construction render" loading="lazy" decoding="async" />
+            <img data-photo src="assets/img/gallery/kmg-09.jpeg" alt="Granite temple with a completed gopuram and mandapa" loading="lazy" decoding="async" />
             <div class="card__ico"><svg viewBox="0 0 24 24"><use href="#i-temple"/></svg></div>
             <h3 class="card__title">Temple Construction Projects</h3>
             <p>Complete temple construction and architectural stonework.</p>
@@ -526,17 +541,17 @@
             <p>Manufacturing, supply and installation of temple stone components.</p>
           </article>
           <article class="card card--big card--photo reveal" data-tilt>
-            <img data-photo src="assets/img/gallery/kmg-30.jpeg" alt="Stone temple project" loading="lazy" decoding="async" />
+            <img data-photo src="assets/img/parking/parking-3.jpg" alt="Interlocking stone paving laid beside a lawn" loading="lazy" decoding="async" />
             <div class="card__ico"><svg viewBox="0 0 24 24"><use href="#i-grid"/></svg></div>
             <h3 class="card__title">Parking &amp; Paving Projects</h3>
             <p>Supply of parking and paving stones for residential, commercial and other projects.</p>
           </article>
         </div>
         <div class="proj-strip reveal">
-          <img data-photo src="assets/img/gallery/kmg-17.jpeg" alt="Carved stone temple facade project" loading="lazy" decoding="async" />
-          <img data-photo src="assets/img/gallery/kmg-18.jpeg" alt="Carved stone sculpture project" loading="lazy" decoding="async" />
-          <img data-photo src="assets/img/gallery/kmg-19.jpeg" alt="Temple render project" loading="lazy" decoding="async" />
-          <img data-photo src="assets/img/gallery/kmg-20.jpeg" alt="Carved stone mandapam project" loading="lazy" decoding="async" />
+          <img data-photo src="assets/img/gallery/kmg-26.jpeg" alt="Design visualisation of a granite temple with elephant base course" loading="lazy" decoding="async" />
+          <img data-photo src="assets/img/gallery/kmg-27.jpeg" alt="Design visualisation showing the temple side elevation" loading="lazy" decoding="async" />
+          <img data-photo src="assets/img/gallery/kmg-21.jpeg" alt="Design visualisation of a small temple front elevation" loading="lazy" decoding="async" />
+          <img data-photo src="assets/img/gallery/kmg-22.jpeg" alt="Design visualisation of a small temple, three-quarter view" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
@@ -547,17 +562,96 @@
         <div class="section-head reveal">
           <p class="kicker">Temple Gallery</p>
           <h2 class="h2">Our craftsmanship</h2>
-          <p class="section-head__lede">Every stone tells a story of craftsmanship, tradition and dedication.</p>
+          <p class="section-head__lede">Finished work from our yard and our sites — sculpture, relief panels, columns and completed structures.</p>
         </div>
         <div class="gallery">
-          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-21.jpeg" alt="Detailed carved stone relief" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Carved stone relief</figcaption></figure>
-          <figure class="gtile gtile--wide reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-22.jpeg" alt="Carved stone elephant detail" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Elephant carving detail</figcaption></figure>
-          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-23.jpeg" alt="Carved stone statue" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Carved stone statue</figcaption></figure>
-          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-24.jpeg" alt="Finished carved stone pavilion" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Carved stone pavilion</figcaption></figure>
-          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-25.jpeg" alt="Temple architecture render" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Temple architecture render</figcaption></figure>
-          <figure class="gtile gtile--wide reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-26.jpeg" alt="Carved stone temple entry structure" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Stone entry structure</figcaption></figure>
-          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-27.jpeg" alt="Carved stone architectural detail" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Architectural detail</figcaption></figure>
-          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-28.jpeg" alt="Temple construction render" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Temple construction render</figcaption></figure>
+          <figure class="gtile gtile--wide reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-23.jpeg" alt="Pair of carved granite temple elephants in the yard" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Temple elephants in granite</figcaption></figure>
+          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-25.jpeg" alt="Polished black granite Lakshmi murti" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Lakshmi — black granite</figcaption></figure>
+          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-16.jpeg" alt="Completed stone entrance gateway with a seated figure above" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Temple entrance gateway</figcaption></figure>
+          <figure class="gtile gtile--wide reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-24.jpeg" alt="Two finished granite elephant sculptures on carved bases" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Elephant pair, finished</figcaption></figure>
+          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-12.jpeg" alt="Carved granite flagstaff column seen from below" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Dhwaja stambha</figcaption></figure>
+          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-29.jpeg" alt="Reclining Vishnu carved in relief on a granite slab" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Anantashayana panel</figcaption></figure>
+          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-30.jpeg" alt="Completed circular stone mandapa with carved pillars" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Circular mandapa</figcaption></figure>
+          <figure class="gtile reveal" data-tilt><img data-photo src="assets/img/gallery/kmg-28.jpeg" alt="Rama, Lakshmana, Sita and Hanuman carved in relief" loading="lazy" decoding="async" /><span class="gtile__ph">Photo</span><figcaption>Ram Darbar relief</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TEMPLE STONE COLLECTIONS -->
+    <section class="section" id="collections">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Our Collections</p>
+          <h2 class="h2">Temple stone collections</h2>
+          <p class="section-head__lede">A working record of what leaves our yard — idols and sculpture, pillars and columns, carved panels and ceilings, and the temple structures they are built into.</p>
+        </div>
+        <div class="coll-group reveal">
+          <div class="coll-group__head">
+            <h3 class="coll-group__title">Deity Idols &amp; Sculpture</h3>
+            <p class="coll-group__note">Murtis and figure work carved from black and grey granite, finished to a hand-polished sheen.</p>
+            <span class="coll-group__count">07 pieces</span>
+          </div>
+          <div class="coll-grid">
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/idol-hanuman.jpg" alt="Carved black granite Hanuman murti with a decorated arch surround" loading="lazy" decoding="async" /><figcaption><b>Hanuman</b><span>Black granite murti</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/idol-durga.jpg" alt="Carved granite Durga figure with eight arms holding weapons" loading="lazy" decoding="async" /><figcaption><b>Durga</b><span>Standing eight-armed figure</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/idol-naga.jpg" alt="Carved granite deity seated beneath a multi-headed naga hood" loading="lazy" decoding="async" /><figcaption><b>Deity under naga hood</b><span>Seated figure, granite</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/idol-ganesha.jpg" alt="Seated black granite Ganesha murti on a carved plinth" loading="lazy" decoding="async" /><figcaption><b>Ganesha</b><span>Black granite, seated</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/idol-ganesha-2.jpg" alt="Black granite Ganesha carved in relief above a decorated base" loading="lazy" decoding="async" /><figcaption><b>Ganesha panel</b><span>Relief on a carved base</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/idol-seated.jpg" alt="Carved granite seated deity photographed in the workshop yard" loading="lazy" decoding="async" /><figcaption><b>Seated deity</b><span>Granite, in the workshop</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/sculpt-elephant.jpg" alt="Life-size granite elephant sculpture with carved caparison" loading="lazy" decoding="async" /><figcaption><b>Temple elephant</b><span>Full-round granite sculpture</span></figcaption></figure>
+          </div>
+        </div>
+        <div class="coll-group reveal">
+          <div class="coll-group__head">
+            <h3 class="coll-group__title">Pillars, Columns &amp; Yali Work</h3>
+            <p class="coll-group__note">Turned shafts, carved capitals, dhwaja stambha and the yali brackets that carry a mandapa roof.</p>
+            <span class="coll-group__count">06 pieces</span>
+          </div>
+          <div class="coll-grid">
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/pillar-bases.jpg" alt="Rows of fluted granite pillar bases stacked in the yard" loading="lazy" decoding="async" /><figcaption><b>Turned pillar bases</b><span>Stacked, ready to dispatch</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/pillar-yali.jpg" alt="Granite pillar carved with a yali at its base" loading="lazy" decoding="async" /><figcaption><b>Yali pillar</b><span>Single carved column</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/pillar-yali-pair.jpg" alt="A matched pair of carved yali pillars standing on site" loading="lazy" decoding="async" /><figcaption><b>Yali pillar pair</b><span>Set on site</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/pillar-yali-site.jpg" alt="Carved yali column being positioned on site with scaffolding" loading="lazy" decoding="async" /><figcaption><b>Yali column</b><span>Being set in place</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/pillar-carved.jpg" alt="Carved granite columns erected as part of a mandapa colonnade" loading="lazy" decoding="async" /><figcaption><b>Carved columns</b><span>Mandapa colonnade</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/pillar-dhwaja.jpg" alt="Carved granite flagstaff base with elephant and yali figures" loading="lazy" decoding="async" /><figcaption><b>Dhwaja stambha base</b><span>Elephant and yali plinth</span></figcaption></figure>
+          </div>
+        </div>
+        <div class="coll-group reveal">
+          <div class="coll-group__head">
+            <h3 class="coll-group__title">Carved Panels &amp; Ceilings</h3>
+            <p class="coll-group__note">Relief panels, lotus ceiling medallions and compound wall work — from rough block to finished surface.</p>
+            <span class="coll-group__count">08 pieces</span>
+          </div>
+          <div class="coll-grid">
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/panel-lotus.jpg" alt="Finished circular lotus ceiling medallion carved in granite" loading="lazy" decoding="async" /><figcaption><b>Lotus ceiling medallion</b><span>Finished — granite</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/panel-lotus-wip.jpg" alt="Lotus ceiling medallion part-carved with chisels lying on the stone" loading="lazy" decoding="async" /><figcaption><b>The same medallion, in progress</b><span>Chisel work under way</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/panel-ceiling.jpg" alt="Square granite ceiling panel with a central rosette and scrolled border" loading="lazy" decoding="async" /><figcaption><b>Square ceiling panel</b><span>Rosette and scroll border</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/panel-dvarapala.jpg" alt="Granite panel with a standing female guardian figure carved in relief" loading="lazy" decoding="async" /><figcaption><b>Dvarapalika panel</b><span>Figure relief, in progress</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/panel-vishnu-wip.jpg" alt="Reclining Vishnu panel at the roughing-out stage" loading="lazy" decoding="async" /><figcaption><b>Anantashayana panel</b><span>Roughing out the form</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/panel-kirtimukha.jpg" alt="Close detail of a kirtimukha face carved above a lintel" loading="lazy" decoding="async" /><figcaption><b>Kirtimukha</b><span>Lintel carving detail</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/panel-wall.jpg" alt="Temple wall course carved with an elephant head, Nataraja niche and nandi frieze" loading="lazy" decoding="async" /><figcaption><b>Carved wall course</b><span>Elephant, Nataraja and nandi frieze</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/panel-wall-door.jpg" alt="Carved granite compound wall with a decorated doorway surround" loading="lazy" decoding="async" /><figcaption><b>Compound wall and doorway</b><span>Carved surround, on site</span></figcaption></figure>
+          </div>
+        </div>
+        <div class="coll-group reveal">
+          <div class="coll-group__head">
+            <h3 class="coll-group__title">Temple Structures &amp; Site Work</h3>
+            <p class="coll-group__note">Shrines, mandapas and gopurams from stockyard to erection — the work as it actually happens.</p>
+            <span class="coll-group__count">10 pieces</span>
+          </div>
+          <div class="coll-grid">
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-mandapa.jpg" alt="Completed circular stone mandapa with carved pillars" loading="lazy" decoding="async" /><figcaption><b>Circular mandapa</b><span>Completed, Karnataka</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-crane.jpg" alt="Workers guiding a crane as carved pillars are set on a circular base" loading="lazy" decoding="async" /><figcaption><b>Setting the pillars</b><span>Crane lift in progress</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-round-wip.jpg" alt="Round stone shrine under construction with scaffolding and a flag" loading="lazy" decoding="async" /><figcaption><b>Round shrine</b><span>Under construction</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-dome.jpg" alt="Small domed stone shrine with fully carved outer walls" loading="lazy" decoding="async" /><figcaption><b>Domed shrine</b><span>Carved walls complete</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-vimana.jpg" alt="Carved granite vimana tower standing finished in the stockyard" loading="lazy" decoding="async" /><figcaption><b>Vimana tower</b><span>Finished in the yard</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-shrine.jpg" alt="Completed stone shrine with carved roof and surrounding railing" loading="lazy" decoding="async" /><figcaption><b>Completed shrine</b><span>Handed over</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-yali-porch.jpg" alt="Stone shrine porch framed by carved yali columns" loading="lazy" decoding="async" /><figcaption><b>Shrine porch</b><span>Yali columns in place</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-porch.jpg" alt="Temple porch with carved columns and a decorated elephant on consecration day" loading="lazy" decoding="async" /><figcaption><b>Temple porch</b><span>Consecration day</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-gopuram.jpg" alt="Stone gopuram under construction behind timber scaffolding at sunset" loading="lazy" decoding="async" /><figcaption><b>Gopuram</b><span>Rising behind scaffolding</span></figcaption></figure>
+            <figure class="coll-item reveal"><img data-photo src="assets/img/collections/build-stockyard.jpg" alt="Dressed granite cornice blocks stacked in the stockyard" loading="lazy" decoding="async" /><figcaption><b>Cut stone</b><span>Stockyard, ready to move</span></figcaption></figure>
+          </div>
         </div>
       </div>
     </section>
@@ -608,10 +702,9 @@
           <h2 class="h2">Let's build something timeless</h2>
           <p>Have a temple construction project, stone requirement or bulk parking stone order? Contact KMG Enterprises to discuss your requirements.</p>
           <ul class="contact-list">
-            <li><span class="contact-list__k">📞 Call</span><span><a href="tel:9108318319">91083 18319</a> &nbsp;·&nbsp; <a href="tel:9535988986">95359 88986</a></span></li>
-            <li><span class="contact-list__k">📱 WhatsApp</span><span><a href="https://wa.me/919108318319" target="_blank" rel="noopener">Chat on WhatsApp</a> <em class="placeholder">[ designation pending ]</em></span></li>
-            <li><span class="contact-list__k">📧 Email</span><span class="placeholder">[ Email address ]</span></li>
-            <li><span class="contact-list__k">📍 Factory</span><span class="placeholder">[ Complete factory address ]</span></li>
+            <li><span class="contact-list__k"><span class="ico-inline"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></span> Call</span><span><a href="tel:9108318319">91083 18319</a> &nbsp;·&nbsp; <a href="tel:9535988986">95359 88986</a></span></li>
+            <li><span class="contact-list__k"><span class="ico-inline"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg></span> WhatsApp</span><span><a href="https://wa.me/919108318319" target="_blank" rel="noopener">Chat on WhatsApp</a></span></li>
+            <li><span class="contact-list__k"><span class="ico-inline"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span> Factory</span><span><a href="https://www.google.com/maps/search/?api=1&amp;query=13.302334785461426,77.65715026855469" target="_blank" rel="noopener">View on Google&nbsp;Maps</a></span></li>
           </ul>
         </div>
         <form class="form reveal" id="enquiryForm">
@@ -640,6 +733,20 @@
           <p class="form__note">Opens WhatsApp with your details pre-filled to 91083 18319.</p>
         </form>
       </div>
+      <div class="wrap">
+        <figure class="map map--wide reveal">
+          <iframe
+            src="https://www.google.com/maps?q=13.302334785461426,77.65715026855469&amp;z=16&amp;hl=en&amp;output=embed"
+            title="KMG Enterprises factory location on Google Maps"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <figcaption class="map__foot">
+            <strong>KMG Enterprises</strong>
+            <span>Factory &amp; stone yard · 13.302335, 77.657150</span>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=13.302334785461426,77.65715026855469" target="_blank" rel="noopener">Get directions &rarr;</a>
+          </figcaption>
+        </figure>
+      </div>
     </section>
   </main>
 
@@ -654,7 +761,7 @@
       </div>
       <div>
         <h5>Quick Links</h5>
-        <a href="#about">About Us</a><a href="#founder">Founder</a><a href="#products">Products</a>
+        <a href="#about">About Us</a><a href="#team">Our Team</a><a href="#products">Products</a>
         <a href="#services">Services</a><a href="#projects">Projects</a><a href="#gallery">Gallery</a>
       </div>
       <div>
@@ -682,9 +789,9 @@
 
   <!-- KMG ASSISTANT -->
   <div class="asst" id="asst">
-    <button class="asst__fab" id="asstFab" aria-expanded="false" aria-controls="asstPanel">
+    <button class="asst__fab" id="asstFab" aria-expanded="false" aria-controls="asstPanel" aria-label="Ask KMG — open the assistant">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9.5 10.5h.01M14.5 10.5h.01"/></svg>
-      <span>Ask KMG</span>
+      <span class="u-sr">Ask KMG</span>
     </button>
     <section class="asst__panel" id="asstPanel" role="dialog" aria-label="KMG Assistant" hidden>
       <header class="asst__head">
@@ -707,8 +814,8 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="assets/js/scene.js" defer></script>
-  <script src="assets/js/app.js" defer></script>
-  <script src="assets/js/assistant.js" defer></script>
+  <script src="assets/js/scene.js?v=59e6374e" defer></script>
+  <script src="assets/js/app.js?v=d4bdc51f" defer></script>
+  <script src="assets/js/assistant.js?v=3fb00b27" defer></script>
 </body>
 </html>

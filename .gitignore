@@ -1,10 +1,18 @@
-# OS / editor
-.DS_Store
+# OS / editor cruft
 Thumbs.db
 desktop.ini
-*.log
-
-# local dev
+.DS_Store
+*.swp
 .vscode/
-udd*/
-*.tmp
+.idea/
+
+# Local tooling
+node_modules/
+.vercel/
+.wrangler/
+.env
+.env.*
+
+# Raw client drops — the used images live in assets/img/
+photos/
+*.psd

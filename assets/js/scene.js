@@ -359,14 +359,14 @@
     rimP.position.set(0, 3, -6);
     scene.add(rimP);
 
-    var floor = new THREE.Mesh(
-      new THREE.CircleGeometry(12, 48),
+    var floorMesh = new THREE.Mesh(
+      new THREE.CircleGeometry(1, 64),
       new THREE.MeshStandardMaterial({ color: 0x241f1c, roughness: 1 })
     );
-    floor.rotation.x = -Math.PI / 2;
-    floor.position.y = -1.7;
-    floor.receiveShadow = true;
-    scene.add(floor);
+    floorMesh.rotation.x = -Math.PI / 2;
+    floorMesh.position.y = -1.7;
+    floorMesh.receiveShadow = true;
+    scene.add(floorMesh);
 
     var holder = new THREE.Group();
     scene.add(holder);
@@ -457,11 +457,54 @@
       gopuram: ["Gopuram Block", "Stacked, tapering tower blocks with cornice lips — the stepped units that form a temple gopuram."]
     };
 
-    var current = null;
+    var current = null, modelH = 3;
+
+    /* Centre whatever model is showing, then fit it by its bounding SPHERE so
+       nothing can clip at any rotation. Flat, wide pieces (paving, mandapam)
+       are viewed from a higher angle, otherwise they'd be seen edge-on. */
+    function frame() {
+      if (!current) return;
+      /* Box3.setFromObject measures in WORLD space, so the holder's live spin
+         and idle bob would leak into the centre we subtract in LOCAL space.
+         Neutralise the holder while measuring, then put it back. */
+      var keepRot = holder.rotation.y, keepY = holder.position.y;
+      holder.rotation.y = 0; holder.position.y = 0;
+      current.position.set(0, 0, 0);
+      holder.updateWorldMatrix(true, true);
+
+      var box = new THREE.Box3().setFromObject(current);
+      var size = box.getSize(new THREE.Vector3());
+      var mid = box.getCenter(new THREE.Vector3());
+      current.position.sub(mid);                    // model centre -> holder origin
+
+      holder.rotation.y = keepRot; holder.position.y = keepY;
+      modelH = size.y;
+
+      var spin = Math.sqrt(size.x * size.x + size.z * size.z);
+      var radius = 0.5 * Math.sqrt(spin * spin + size.y * size.y) + size.y * 0.012;
+
+      // a circle of ground just larger than the piece, not a vast plain
+      floorMesh.scale.setScalar(Math.max(spin, size.y) * 0.62);
+      floorMesh.position.y = -size.y / 2 - 0.02;
+
+      var fov = camera.fov * Math.PI / 180;
+      var hFov = 2 * Math.atan(Math.tan(fov / 2) * Math.max(camera.aspect, 0.0001));
+      var dist = Math.max(radius / Math.sin(fov / 2), radius / Math.sin(hFov / 2)) * 1.04;
+
+      // 0 = tall and slender, 1 = flat and wide
+      var flat = Math.min(1, Math.max(0, (spin / Math.max(size.y, 0.001) - 0.9) / 2.6));
+      var elev = (9 + flat * 26) * Math.PI / 180;
+
+      camera.position.set(0, Math.sin(elev) * dist, Math.cos(elev) * dist);
+      camera.lookAt(0, 0, 0);
+      camera.updateProjectionMatrix();
+    }
+
     function show(key) {
       if (current) holder.remove(current);
       current = models[key]();
       holder.add(current);
+      frame();
       var c = document.getElementById("viewerCopy");
       if (c && copy[key]) c.innerHTML = "<h3>" + copy[key][0] + "</h3><p>" + copy[key][1] + "</p>";
     }
@@ -492,6 +535,7 @@
         renderer.setSize(w, h, false);
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
+        frame();
       }
     }
 
@@ -516,7 +560,7 @@
         if (idle > 1 && !reduced) rot += dt * 0.35;
       }
       holder.rotation.y = rot;
-      holder.position.y = reduced ? 0 : Math.sin(clock.elapsedTime * 1.1) * 0.07;
+      holder.position.y = reduced ? 0 : Math.sin(clock.elapsedTime * 1.1) * (modelH * 0.012);
       renderer.render(scene, camera);
     }
     resize();

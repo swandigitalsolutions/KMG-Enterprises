@@ -5,10 +5,13 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#1c1a19",
-  "theme_color": "#1c1a19",
+  "background_color": "#f7f2e9",
+  "theme_color": "#f7f2e9",
   "lang": "en-IN",
-  "categories": ["business", "construction"],
+  "categories": [
+    "business",
+    "construction"
+  ],
   "icons": [
     {
       "src": "assets/img/logo.png",

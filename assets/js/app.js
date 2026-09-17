@@ -83,6 +83,31 @@
     }, { passive: true });
   }
 
+  /* ---------- collections: seamless auto-scrolling rails ---------- */
+  document.querySelectorAll(".coll-grid").forEach(function (track, row) {
+    var cards = Array.prototype.slice.call(track.children);
+    if (!cards.length) return;
+
+    /* wrap the track so the rail can clip and fade it */
+    var rail = document.createElement("div");
+    rail.className = "coll-rail" + (row % 2 ? " coll-rail--rev" : "");
+    track.parentNode.insertBefore(rail, track);
+    rail.appendChild(track);
+
+    /* a second copy makes the -50% wrap land exactly on card 1 again */
+    cards.forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.querySelectorAll("a, button").forEach(function (el) { el.tabIndex = -1; });
+      clone.classList.remove("reveal");
+      track.appendChild(clone);
+    });
+
+    /* constant speed regardless of how many pieces a group holds */
+    var SEC_PER_CARD = 4.5;
+    track.style.setProperty("--coll-dur", (cards.length * SEC_PER_CARD).toFixed(1) + "s");
+  });
+
   /* ---------- reveal on scroll (staggered, directional, pop grids) ---------- */
   var POP_CONTAINERS = ".cards, .cards--3, .cols-2, .feature-grid, .pgallery, .gallery, .values, .stat-grid";
   document.querySelectorAll(POP_CONTAINERS).forEach(function (grid) {
@@ -94,6 +119,13 @@
       child.classList.remove("reveal");
     });
   });
+
+  /* The entrance animation uses fill-mode "both", so its final transform keeps
+     winning over :hover transforms. Clear it once the pop has finished. */
+  document.addEventListener("animationend", function (e) {
+    if (e.animationName !== "kmg-pop") return;
+    e.target.style.animation = "none";
+  }, true);
 
   var reveals = document.querySelectorAll(".reveal, [data-stagger]");
   if ("IntersectionObserver" in window && !reduced) {
