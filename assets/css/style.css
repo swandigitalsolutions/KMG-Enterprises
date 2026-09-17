@@ -295,7 +295,7 @@ body.cursor-ready .cursor-dot, body.cursor-ready .cursor-ring{ opacity:1; }
     linear-gradient(165deg,#1c1c25,#0f0f16);
   box-shadow:var(--shadow);
 }
-.founder-card > img[data-photo]{ position:absolute; inset:0; z-index:3; }
+.founder-card > img[data-photo]{ position:absolute; inset:0; z-index:3; object-position:top center; }
 .founder-card::before,.founder-card::after{
   content:""; position:absolute; width:34px; height:34px; z-index:2;
   border:1px solid var(--gold); opacity:.55;
