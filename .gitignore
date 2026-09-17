@@ -16,3 +16,7 @@ node_modules/
 # Raw client drops — the used images live in assets/img/
 photos/
 *.psd
+
+.dev.vars*
+!.dev.vars.example
+!.env.example

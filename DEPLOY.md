@@ -18,11 +18,19 @@ so the site behaves identically on either host.
 pick `swandigitalsolutions/KMG-Enterprises`, framework preset **None**, leave
 the build command empty, output directory `/`. Every push to `main` redeploys.
 
-**Direct upload**
+**Direct upload** — deploy from a *clean copy* of the site files. Deploying the
+repository root uploads `.git` as assets, and a pack object there exceeds the
+25 MiB per-asset limit, so the deploy fails:
 
 ```bash
-npx wrangler pages deploy . --project-name kmg-enterprises --branch main
+STAGE=$(mktemp -d)/kmg && mkdir -p "$STAGE/public"
+cp -r index.html 404.html assets _headers robots.txt sitemap.xml       site.webmanifest "$STAGE/public"/
+cp wrangler.jsonc "$STAGE"/            # config must sit OUTSIDE public/
+cd "$STAGE" && npx wrangler deploy
 ```
+
+`wrangler.jsonc` sets `not_found_handling: "404-page"` so a missing URL serves
+our branded `404.html` rather than Cloudflare's default.
 
 ## Vercel
 
@@ -45,7 +53,7 @@ npx vercel --prod
    - `sitemap.xml` — every `<loc>` and `<image:loc>`
    - `robots.txt` — the `Sitemap:` line
 
-   Current placeholder: `https://swandigitalsolutions.github.io/KMG-Enterprises`
+   Current placeholder: `https://kmg-enterprises.swandigitalsolutions.workers.dev`
 
 2. **Google Search Console** — add the property, verify (paste the token into
    the commented-out `google-site-verification` meta in `index.html`), then

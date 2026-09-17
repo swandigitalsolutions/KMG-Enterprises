@@ -10,4 +10,4 @@ Disallow: /photos/
 Disallow: /assets/img/parking/PLACE-PHOTOS-HERE.txt
 Disallow: /DEPLOY.md
 
-Sitemap: https://swandigitalsolutions.github.io/KMG-Enterprises/sitemap.xml
+Sitemap: https://kmg-enterprises.swandigitalsolutions.workers.dev/sitemap.xml

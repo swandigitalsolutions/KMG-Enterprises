@@ -1,0 +1,12 @@
+{
+  // Static-assets Worker (Cloudflare Pages, now part of Workers).
+  // Deploy from a clean copy of the site files — see DEPLOY.md — so that
+  // .git is never picked up as an asset.
+  "name": "kmg-enterprises",
+  "compatibility_date": "2026-09-17",
+  "assets": {
+    "directory": "./",
+    // serve our branded 404.html instead of Cloudflare's default page
+    "not_found_handling": "404-page"
+  }
+}
