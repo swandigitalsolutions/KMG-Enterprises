@@ -1444,3 +1444,77 @@ img[data-photo]{ background:repeating-linear-gradient(115deg,#ece3d2 0 10px,#e4d
 @media (hover:none){
   .hero__scroll{ width:34px; height:52px; }
 }
+
+/* ---- FIX: the off-canvas mobile menu is an ivory panel, but the nav is
+   still sitting over the dark hero, so `.nav:not(.is-scrolled)` was painting
+   its links and its close icon white — invisible on the panel. Those rules
+   only make sense for the horizontal bar, so undo them at menu widths. ---- */
+@media (max-width:1200px){
+  .nav:not(.is-scrolled) .nav__links a{ color:var(--ink-dim); }
+  .nav:not(.is-scrolled) .nav__links a:hover,
+  .nav:not(.is-scrolled) .nav__links a.is-current{ color:var(--gold-deep); }
+  .nav:not(.is-scrolled) .nav__links a::after{ background:var(--gold); }
+  /* once the panel is open the burger/X sits on ivory too */
+  .nav.is-menu:not(.is-scrolled) .nav__toggle span{ background:var(--ink); }
+  /* keep the hero from showing through the panel */
+  .nav__links{ box-shadow:-24px 0 60px -30px rgba(60,42,20,.55); }
+}
+
+/* Label beside the map pin. Google's free embed ignores the q=lat,lng(Label)
+   syntax — a named place card needs the paid Embed API key — so the label is
+   ours, drawn over the iframe. The embed centres the map on the pin, so 50%/50%
+   of the MAP is always the pin. It must be measured against the iframe, not the
+   whole <figure>, or the caption's height throws the anchor off. */
+.map__frame{ position:relative; display:block; line-height:0; }
+.map__marker{
+  position:absolute; left:50%; top:50%; z-index:2;
+  /* centre the label on a point 27px above the map centre — that's the
+     pin's head — so it stays put whatever the label's own height is */
+  transform:translate(14px, -50%) translateY(-27px);
+  padding:.32em .7em;
+  border-radius:7px;
+  background:rgba(255,253,247,.96);
+  border:1px solid rgba(169,124,34,.5);
+  box-shadow:0 6px 16px -6px rgba(60,42,20,.55);
+  font-family:"Marcellus",serif; font-size:.78rem; letter-spacing:.03em;
+  color:var(--ink); white-space:nowrap;
+  pointer-events:none;
+}
+.map__marker::before{
+  content:""; position:absolute; left:-5px; top:50%;
+  width:0; height:0; transform:translateY(-50%);
+  border:5px solid transparent; border-right-color:rgba(169,124,34,.5);
+}
+@media (max-width:520px){
+  .map__marker{ font-size:.7rem; transform:translate(11px, -50%) translateY(-24px); }
+}
+
+/* ---- FIX: the off-canvas panel is position:fixed, but `.nav.is-scrolled`
+   sets backdrop-filter and `.nav.is-hidden` sets transform — either one makes
+   the nav a containing block, so the panel stopped being viewport-fixed and
+   got clipped into the 70px bar as soon as the page was scrolled.
+   While the menu is open the nav must create no containing block. ---- */
+.nav.is-menu{
+  -webkit-backdrop-filter:none !important;
+          backdrop-filter:none !important;
+  transform:none !important;
+  background:transparent;
+  box-shadow:none;
+  border-color:transparent;
+}
+/* the panel paints its own ground, so the bar behind it can go clear */
+.nav.is-menu .nav__links{ background:#fbf7ef; }
+
+/* dim the page behind the open panel, and catch taps to dismiss it */
+.nav__scrim{
+  position:fixed; inset:0; z-index:99;
+  background:rgba(24,18,12,.5);
+  opacity:0; pointer-events:none;
+  transition:opacity .4s var(--ease);
+}
+.nav.is-menu ~ .nav__scrim,
+body.has-menu .nav__scrim{ opacity:1; pointer-events:auto; }
+@media (min-width:1201px){ .nav__scrim{ display:none; } }
+
+/* scroll lock that works on mobile, where body{overflow:hidden} alone doesn't */
+body.has-menu{ position:fixed; width:100%; overflow:hidden; }

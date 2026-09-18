@@ -47,17 +47,44 @@
     lastY = y;
   }, { passive: true });
 
-  function closeMenu() {
+  /* A tap-to-dismiss scrim behind the panel. Inserted here so the markup
+     stays clean and it can never exist without the JS that drives it. */
+  var scrim = document.createElement("div");
+  scrim.className = "nav__scrim";
+  document.body.appendChild(scrim);
+
+  /* body{overflow:hidden} alone does not hold on mobile, so the open menu
+     pins the body and restores the exact scroll position on close. */
+  var lockedY = 0;
+
+  function setMenu(open) {
     if (!nav) return;
-    nav.classList.remove("is-menu");
-    if (navLinks) navLinks.classList.remove("is-open");
-    document.body.style.overflow = "";
+    if (open === nav.classList.contains("is-menu")) return;
+
+    if (open) {
+      lockedY = window.scrollY;
+      nav.classList.remove("is-hidden");      // never hide the bar under the panel
+      nav.classList.add("is-menu");
+      if (navLinks) navLinks.classList.add("is-open");
+      document.body.style.top = -lockedY + "px";
+      document.body.classList.add("has-menu");
+    } else {
+      nav.classList.remove("is-menu");
+      if (navLinks) navLinks.classList.remove("is-open");
+      document.body.classList.remove("has-menu");
+      document.body.style.top = "";
+      window.scrollTo(0, lockedY);
+      lastY = lockedY;                        // don't read the restore as a scroll up
+    }
+    if (navToggle) navToggle.setAttribute("aria-expanded", String(open));
   }
+  function closeMenu() { setMenu(false); }
+
   if (navToggle) {
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-controls", "navLinks");
     navToggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-menu");
-      navLinks.classList.toggle("is-open", open);
-      document.body.style.overflow = open ? "hidden" : "";
+      setMenu(!nav.classList.contains("is-menu"));
     });
   }
   if (navLinks) {
@@ -65,6 +92,19 @@
       a.addEventListener("click", closeMenu);
     });
   }
+  scrim.addEventListener("click", closeMenu);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeMenu();
+  });
+  /* any attempt to scroll the page closes it rather than leaving a stuck panel */
+  window.addEventListener("wheel", closeMenu, { passive: true });
+  window.addEventListener("touchmove", function () {
+    if (document.body.classList.contains("has-menu")) closeMenu();
+  }, { passive: true });
+  /* rotating or resizing past the breakpoint must not strand an open panel */
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 1200) closeMenu();
+  });
 
   /* ---------- scroll progress bar ---------- */
   var progress = document.getElementById("scrollProgress");
