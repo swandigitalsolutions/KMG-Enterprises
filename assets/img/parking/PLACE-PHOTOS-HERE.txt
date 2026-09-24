@@ -1,0 +1,11 @@
+KMG ENTERPRISES — parking / paving photos
+=========================================
+
+parking-1.jpg … parking-8.jpg are IN PLACE and live on the site
+(Parking gallery, Products card, Projects strip and main Gallery).
+
+To swap any of them, just overwrite the file with the same name and
+keep it roughly portrait / landscape as it is now. 1600px wide+ is ideal.
+
+Related stone-yard photos live in ..\factory\ (factory-1.jpg … factory-5.jpg)
+and are used in the Stone Factory section, the Temple Stones card and the Gallery.

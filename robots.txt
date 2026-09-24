@@ -1,0 +1,13 @@
+# robots.txt — KMG Enterprises
+# Single-page marketing site; everything is crawlable.
+# Update the Sitemap URL if a custom domain is connected.
+
+User-agent: *
+Allow: /
+
+# Housekeeping files with no search value
+Disallow: /photos/
+Disallow: /assets/img/parking/PLACE-PHOTOS-HERE.txt
+Disallow: /DEPLOY.md
+
+Sitemap: https://kmg-enterprises.swandigitalsolutions.workers.dev/sitemap.xml

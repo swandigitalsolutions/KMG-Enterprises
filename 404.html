@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f7f2e9" />
+<meta name="color-scheme" content="light" />
+<meta name="robots" content="noindex, follow" />
+<title>Page not found | KMG Enterprises</title>
+<link rel="icon" href="assets/img/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Marcellus&family=Inter:wght@400&display=swap" />
+<style>
+  :root{ --bg:#f7f2e9; --ink:#241c14; --ink-mute:#7c6d59; --gold:#a97c22; --gold-deep:#7d5a12; --line:rgba(58,42,24,.16); }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100svh; display:grid; place-items:center;
+    padding:2rem 1.25rem; background:var(--bg); color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif; line-height:1.65;
+    background-image:radial-gradient(60vw 60vw at 80% -10%, rgba(169,124,34,.10), transparent 60%);
+  }
+  .wrap{ max-width:560px; text-align:center; }
+  .mark{ display:flex; align-items:center; justify-content:center; gap:.6rem; margin-bottom:2.25rem; }
+  .mark img{ width:44px; height:44px; border-radius:10px; border:1px solid var(--line); }
+  .mark b{ font-family:"Cormorant Garamond",serif; font-size:1.5rem; letter-spacing:.14em; color:var(--gold-deep); font-weight:600; }
+  .mark span{ font-family:"Marcellus",serif; font-size:.68rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ink-mute); }
+  .code{ font-family:"Marcellus",serif; font-size:.75rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-deep); }
+  h1{ font-family:"Cormorant Garamond",serif; font-weight:600; font-size:clamp(2rem, 1.4rem + 2.6vw, 3rem); margin:.6rem 0 .9rem; }
+  p{ color:var(--ink-mute); margin:0 auto 2rem; max-width:44ch; }
+  .btns{ display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; }
+  a.btn{
+    font-family:"Marcellus",serif; font-size:.85rem; letter-spacing:.06em; text-decoration:none;
+    padding:.85em 1.6em; border-radius:999px; border:1px solid var(--line); color:var(--ink);
+    transition:border-color .3s, color .3s;
+  }
+  a.btn--gold{ background:linear-gradient(120deg,#c7a052,var(--gold) 55%,var(--gold-deep)); color:#fffdf7; border-color:transparent; }
+  a.btn:hover{ border-color:var(--gold); color:var(--gold-deep); }
+  a.btn--gold:hover{ color:#fffdf7; }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="mark">
+      <img src="assets/img/logo.png" alt="" />
+      <b>KMG</b><span>Temple Stone</span>
+    </div>
+    <p class="code">Error 404</p>
+    <h1>This page isn't here</h1>
+    <p>The page you were looking for has moved or never existed. Everything we do lives on the main page — temple construction, temple stone, carving and parking stones.</p>
+    <div class="btns">
+      <a class="btn btn--gold" href="/">Back to home</a>
+      <a class="btn" href="/#contact">Contact us</a>
+      <a class="btn" href="tel:9108318319">Call 91083 18319</a>
+    </div>
+  </main>
+</body>
+</html>
