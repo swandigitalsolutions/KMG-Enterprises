@@ -1,4 +1,4 @@
-# robots.txt — KMG Enterprises
+# robots.txt — KMG Stones
 # Single-page marketing site; everything is crawlable.
 # Update the Sitemap URL if a custom domain is connected.
 

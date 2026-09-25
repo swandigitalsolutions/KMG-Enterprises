@@ -1,6 +1,6 @@
-# KMG Enterprises — Website
+# KMG Stones — Website
 
-Premium single-page website for **KMG Enterprises** — temple construction, temple
+Premium single-page website for **KMG Stones** — temple construction, temple
 stone manufacturing, stone carving and parking / paving stones.
 
 ## Open it

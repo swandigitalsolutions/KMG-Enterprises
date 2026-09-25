@@ -1,4 +1,4 @@
-# Deploying KMG Enterprises
+# Deploying KMG Stones
 
 Static site — no build step, no dependencies. Publish the repository root.
 

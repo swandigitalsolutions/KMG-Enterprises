@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  sitemap.xml — KMG Enterprises
+  sitemap.xml — KMG Stones
   One indexable URL (single-page site) plus an image sitemap of the real
   work, so Google Images can surface the sculpture, pillar and panel photos.
   In-page #anchors are deliberately not listed: Google folds them into the
@@ -17,7 +17,7 @@
     <priority>1.0</priority>
 
     <image:image><image:loc>https://kmg-enterprises.swandigitalsolutions.workers.dev/assets/img/og-cover.jpg</image:loc>
-      <image:title>KMG Enterprises — temple construction and temple stone manufacturing</image:title></image:image>
+      <image:title>KMG Stones — temple construction and temple stone manufacturing</image:title></image:image>
     <image:image><image:loc>https://kmg-enterprises.swandigitalsolutions.workers.dev/assets/img/gallery/kmg-09.jpeg</image:loc>
       <image:title>Completed granite temple with carved gopuram and mandapa</image:title></image:image>
     <image:image><image:loc>https://kmg-enterprises.swandigitalsolutions.workers.dev/assets/img/gallery/kmg-30.jpeg</image:loc>
@@ -39,8 +39,8 @@
     <image:image><image:loc>https://kmg-enterprises.swandigitalsolutions.workers.dev/assets/img/collections/build-crane.jpg</image:loc>
       <image:title>Setting carved temple pillars on site</image:title></image:image>
     <image:image><image:loc>https://kmg-enterprises.swandigitalsolutions.workers.dev/assets/img/parking/parking-1.jpg</image:loc>
-      <image:title>Hexagon paver driveway by KMG Enterprises</image:title></image:image>
+      <image:title>Hexagon paver driveway by KMG Stones</image:title></image:image>
     <image:image><image:loc>https://kmg-enterprises.swandigitalsolutions.workers.dev/assets/img/factory/factory-1.jpg</image:loc>
-      <image:title>KMG Enterprises stone factory</image:title></image:image>
+      <image:title>KMG Stones stone factory</image:title></image:image>
   </url>
 </urlset>

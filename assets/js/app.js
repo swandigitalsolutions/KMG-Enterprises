@@ -1,5 +1,5 @@
 /* =========================================================
-   KMG ENTERPRISES — interactions
+   KMG STONES — interactions
    preloader · nav · reveal · 3D tilt · magnetic buttons
    marquee loop · custom cursor · enquiry form → WhatsApp
    ========================================================= */
@@ -316,7 +316,7 @@
       e.preventDefault();
       var f = form.elements;
       var lines = [
-        "*New Enquiry — KMG Enterprises*",
+        "*New Enquiry — KMG Stones*",
         "",
         "Name: " + (f.name.value || "-"),
         "Phone: " + (f.phone.value || "-"),

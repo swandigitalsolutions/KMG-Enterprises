@@ -1,5 +1,5 @@
 /* =========================================================
-   KMG ENTERPRISES — site assistant
+   KMG STONES — site assistant
    A lightweight, offline rule-based helper. No backend, no API
    keys. Answers common questions from a local knowledge base and
    hands off to WhatsApp / the enquiry form for anything else.
@@ -29,12 +29,12 @@
     {
       id: "greeting",
       k: ["hi", "hello", "hey", "hai", "namaste", "vanakkam", "good morning", "good evening"],
-      a: "Hello! I'm the KMG Enterprises assistant. I can help with our temple stones, parking / paving stones, services, the stone factory, or getting a quote. What would you like to know?"
+      a: "Hello! I'm the KMG Stones assistant. I can help with our temple stones, parking / paving stones, services, the stone factory, or getting a quote. What would you like to know?"
     },
     {
       id: "products",
       k: ["product", "what do you make", "what do you sell", "offer", "catalogue", "catalog", "items"],
-      a: "KMG Enterprises manufactures and supplies:<ul><li><strong>Temple stones</strong> — pillars, beams, mandapam stones, door frames, steps, gopuram components, wall stones and decorative / custom stonework</li><li><strong>Parking &amp; paving stones</strong> — multiple sizes and thicknesses</li><li><strong>Custom stone products</strong> — made to your drawings</li></ul>",
+      a: "KMG Stones manufactures and supplies:<ul><li><strong>Temple stones</strong> — pillars, beams, mandapam stones, door frames, steps, gopuram components, wall stones and decorative / custom stonework</li><li><strong>Parking &amp; paving stones</strong> — multiple sizes and thicknesses</li><li><strong>Custom stone products</strong> — made to your drawings</li></ul>",
       chips: ["Parking stone sizes", "Temple stone list", "Get a quote"]
     },
     {
@@ -89,7 +89,7 @@
     {
       id: "contact",
       k: ["contact", "phone", "call", "number", "mobile", "reach", "talk", "speak", "whatsapp", "email", "address"],
-      a: "You can reach KMG Enterprises here:<ul><li>📞 <a href=\"tel:9108318319\">" + PHONE1 + "</a></li><li>📞 <a href=\"tel:9535988986\">" + PHONE2 + "</a></li><li>📱 <a href=\"" + WA + "\" target=\"_blank\" rel=\"noopener\">WhatsApp</a></li></ul>Email and the factory address are being added shortly.",
+      a: "You can reach KMG Stones here:<ul><li>📞 <a href=\"tel:9108318319\">" + PHONE1 + "</a></li><li>📞 <a href=\"tel:9535988986\">" + PHONE2 + "</a></li><li>📱 <a href=\"" + WA + "\" target=\"_blank\" rel=\"noopener\">WhatsApp</a></li></ul>Email and the factory address are being added shortly.",
       chips: ["Get a quote", "Business hours"]
     },
     {
@@ -100,7 +100,7 @@
     {
       id: "founder",
       k: ["founder", "owner", "who runs", "managing director", "about the company", "who are you", "history"],
-      a: "KMG Enterprises is led by its Founder &amp; Managing Director, and was started to build a trusted name in temple construction, stone craftsmanship and stone manufacturing, serving projects across India."
+      a: "KMG Stones is led by its Founder &amp; Managing Director, and was started to build a trusted name in temple construction, stone craftsmanship and stone manufacturing, serving projects across India."
     },
     {
       id: "thanks",
@@ -206,7 +206,7 @@
     var q = CHIP_QUERY[label] || label;
     if (q === "__wa__") {
       addMsg(escapeText(label), "user");
-      window.open(WA + "?text=" + encodeURIComponent("Hi KMG Enterprises, I have a question about your stone products."), "_blank", "noopener");
+      window.open(WA + "?text=" + encodeURIComponent("Hi KMG Stones, I have a question about your stone products."), "_blank", "noopener");
       typing(function () { addMsg("Opening WhatsApp so you can chat with the KMG team directly.", "bot"); setChips(DEFAULT_CHIPS); });
       return;
     }

@@ -1,5 +1,5 @@
 /* =========================================================
-   KMG ENTERPRISES — 3D scenes (Three.js r128, global THREE)
+   KMG STONES — 3D scenes (Three.js r128, global THREE)
    - Hero: procedural South-Indian gopuram temple, orbit + parallax
    - Products: interactive 3D stone viewer (drag to rotate)
    ========================================================= */
