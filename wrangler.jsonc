@@ -2,7 +2,7 @@
   // Static-assets Worker (Cloudflare Pages, now part of Workers).
   // Deploy from a clean copy of the site files — see DEPLOY.md — so that
   // .git is never picked up as an asset.
-  "name": "kmg-enterprises",
+  "name": "kmg-stones",
   "compatibility_date": "2026-09-17",
   "assets": {
     "directory": "./",

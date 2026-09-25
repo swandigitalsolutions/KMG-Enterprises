@@ -14,6 +14,11 @@ so the site behaves identically on either host.
 
 ## Cloudflare Pages
 
+**Live setup** — the Worker `kmg-stones` is connected to the GitHub repo
+`swandigitalsolutions/kmg-stones`: every push to `main` deploys to
+https://kmg-stones.swandigitalsolutions.workers.dev. `.assetsignore` keeps
+`.git`, `wrangler.jsonc` and the docs from being published as site files.
+
 **Git (recommended)** — Workers & Pages → Create → Pages → Connect to Git →
 pick `swandigitalsolutions/KMG-Enterprises`, framework preset **None**, leave
 the build command empty, output directory `/`. Every push to `main` redeploys.
@@ -54,7 +59,7 @@ npx vercel --prod
    - `sitemap.xml` — every `<loc>` and `<image:loc>`
    - `robots.txt` — the `Sitemap:` line
 
-   Current placeholder: `https://kmg-enterprises.swandigitalsolutions.workers.dev`
+   Current placeholder: `https://kmg-stones.swandigitalsolutions.workers.dev`
 
 2. **Google Search Console** — add the property, verify (paste the token into
    the commented-out `google-site-verification` meta in `index.html`), then

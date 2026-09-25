@@ -1,0 +1,14 @@
+# Files Cloudflare must NOT publish as part of the website.
+# (The assets directory is the repo root, so without this the
+# config, docs and git history would be served publicly.)
+.git
+.github
+.gitignore
+.assetsignore
+.wrangler
+node_modules
+wrangler.jsonc
+DEPLOY.md
+README.md
+vercel.json
+photos
