@@ -61,9 +61,9 @@ npx vercel --prod
 
    Current placeholder: `https://www.kmgstones.com`
 
-2. **Google Search Console** — add the property, verify (paste the token into
-   the commented-out `google-site-verification` meta in `index.html`), then
-   submit `sitemap.xml`.
+2. **Google Search Console** — verified with the HTML-file method:
+   `google24aeecf6c8e84b45.html` in the repo root. **Never delete it** —
+   Google re-checks it, and the property is unverified if it disappears.
 
 3. **Check the social preview** with the Facebook Sharing Debugger and
    X Card Validator — both should show `assets/img/og-cover.jpg` (1200×630).
