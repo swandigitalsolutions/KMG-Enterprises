@@ -24,7 +24,8 @@ repository root uploads `.git` as assets, and a pack object there exceeds the
 
 ```bash
 STAGE=$(mktemp -d)/kmg && mkdir -p "$STAGE/public"
-cp -r index.html 404.html assets _headers robots.txt sitemap.xml       site.webmanifest "$STAGE/public"/
+cp -r index.html 404.html favicon.ico assets _headers robots.txt sitemap.xml \
+      site.webmanifest "$STAGE/public"/
 cp wrangler.jsonc "$STAGE"/            # config must sit OUTSIDE public/
 cd "$STAGE" && npx wrangler deploy
 ```
