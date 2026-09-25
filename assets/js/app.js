@@ -19,12 +19,11 @@
     });
   })();
 
-  /* ---------- preloader ---------- */
-  window.addEventListener("load", function () {
-    var pre = document.getElementById("preloader");
-    if (!pre) return;
-    setTimeout(function () { pre.classList.add("is-done"); }, 700);
-  });
+  /* ---------- preloader ----------
+     A brief logo fade, on a fixed timer — not window "load", which waits
+     for every photo and the 3D library and could hold the page for seconds. */
+  var pre = document.getElementById("preloader");
+  if (pre) setTimeout(function () { pre.classList.add("is-done"); }, 900);
 
   /* ---------- year ---------- */
   var yr = document.getElementById("year");

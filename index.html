@@ -63,7 +63,7 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preload" as="image" href="assets/img/site/hero-temple.jpg" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css?v=4101bb27" />
+<link rel="stylesheet" href="assets/css/style.css?v=7a52808c" />
 <link rel="manifest" href="site.webmanifest" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%95%3C/text%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="assets/img/logo.png" />
@@ -213,7 +213,6 @@
   <div class="preloader" id="preloader">
     <img class="preloader__logo" data-logo src="assets/img/logo.png" alt="KMG Temple Stone" />
     <div class="preloader__mark">KMG</div>
-    <div class="preloader__bar"><span></span></div>
     <div class="preloader__cap">Crafting Divine Stone Heritage</div>
   </div>
 
@@ -367,6 +366,15 @@
               <button data-model="mandapam">Mandapam Stone</button>
               <button data-model="paving">Paving Stone</button>
               <button data-model="gopuram">Gopuram Block</button>
+            </div>
+            <div class="viewer__finish">
+              <span class="viewer__finish-label">Finish: <b id="viewerFinish">Grey Granite</b></span>
+              <div class="viewer__finishes" role="group" aria-label="Stone finish">
+                <button data-finish="grey" class="is-active" aria-pressed="true" title="Grey Granite" aria-label="Grey Granite"></button>
+                <button data-finish="black" aria-pressed="false" title="Black Granite" aria-label="Black Granite"></button>
+                <button data-finish="red" aria-pressed="false" title="Red Granite" aria-label="Red Granite"></button>
+                <button data-finish="sand" aria-pressed="false" title="Sandstone" aria-label="Sandstone"></button>
+              </div>
             </div>
             <div class="viewer__copy" id="viewerCopy">
               <h3>Temple Pillar</h3>
@@ -817,8 +825,8 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="assets/js/scene.js?v=59e6374e" defer></script>
-  <script src="assets/js/app.js?v=c038061a" defer></script>
+  <script src="assets/js/scene.js?v=b0f6dbb0" defer></script>
+  <script src="assets/js/app.js?v=f47bfbdc" defer></script>
   <script src="assets/js/assistant.js?v=3fb00b27" defer></script>
 </body>
 </html>

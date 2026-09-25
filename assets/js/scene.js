@@ -60,6 +60,105 @@
     return t;
   }
 
+  /* ---------- product-viewer stone finishes ----------
+     Each finish paints its own canvas: a base tone, a mineral speckle
+     (the salt-and-pepper of granite), soft tonal blotches and, for
+     sandstone, horizontal bedding bands. The texture carries the colour,
+     so material tints stay near-white and only shade dark/warm parts. */
+  var FINISHES = {
+    grey:  { label: "Grey Granite",  base: "#6f6d69", speck: [[18, 18, 20], [214, 212, 206], [104, 100, 96]], density: 16000, grain: 3.2, blotch: "40,38,36", bands: 0, rough: 0.62, metal: 0.04, bump: 0.02 },
+    black: { label: "Black Granite", base: "#1c1b1b", speck: [[6, 6, 7], [120, 118, 114], [58, 56, 54]], density: 7000, grain: 2.2, blotch: "0,0,0", bands: 0, rough: 0.32, metal: 0.1, bump: 0.004 },
+    red:   { label: "Red Granite",   base: "#6e2f27", speck: [[16, 10, 10], [178, 96, 78], [120, 56, 44], [150, 140, 136]], density: 15000, grain: 3.4, blotch: "40,14,10", bands: 0, rough: 0.55, metal: 0.05, bump: 0.02 },
+    sand:  { label: "Sandstone",     base: "#b89468", speck: [[140, 108, 70], [212, 188, 150], [160, 126, 86]], density: 22000, grain: 1.6, blotch: "110,78,44", bands: 5, rough: 0.95, metal: 0.0, bump: 0.03 }
+  };
+
+  var _finishTex = {};
+  function finishTexture(key) {
+    if (_finishTex[key]) return _finishTex[key];
+    var f = FINISHES[key];
+    var S = 512;
+    var c = document.createElement("canvas");
+    c.width = c.height = S;
+    var x = c.getContext("2d");
+    x.fillStyle = f.base;
+    x.fillRect(0, 0, S, S);
+
+    /* sedimentary bedding bands (sandstone only) */
+    for (var b = 0; b < f.bands; b++) {
+      var by = Math.random() * S, bh = 10 + Math.random() * 40;
+      x.fillStyle = "rgba(" + f.blotch + "," + (0.04 + Math.random() * 0.06).toFixed(3) + ")";
+      x.fillRect(0, by, S, bh);
+    }
+    /* soft blotches for tonal variation */
+    for (var j = 0; j < 30; j++) {
+      var px = Math.random() * S, py = Math.random() * S, rad = 20 + Math.random() * 90;
+      var grd = x.createRadialGradient(px, py, 0, px, py, rad);
+      grd.addColorStop(0, "rgba(" + f.blotch + "," + (0.06 + Math.random() * 0.1).toFixed(3) + ")");
+      grd.addColorStop(1, "rgba(" + f.blotch + ",0)");
+      x.fillStyle = grd;
+      x.fillRect(0, 0, S, S);
+    }
+    /* mineral speckle */
+    for (var i = 0; i < f.density; i++) {
+      var col = f.speck[(Math.random() * f.speck.length) | 0];
+      x.fillStyle = "rgba(" + col[0] + "," + col[1] + "," + col[2] + "," + (0.35 + Math.random() * 0.6).toFixed(2) + ")";
+      var r = 0.8 + Math.random() * f.grain;
+      x.fillRect(Math.random() * S, Math.random() * S, r, r * (0.6 + Math.random() * 0.8));
+    }
+
+    var t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.swatch = c.toDataURL("image/jpeg", 0.8);   // the page's finish swatches reuse it
+    t.anisotropy = 4;
+    t.encoding = THREE.sRGBEncoding;   // renderer outputs sRGB — keeps the colours true
+    _finishTex[key] = t;
+    return t;
+  }
+
+  var _finishMats = {};
+  function finishMats(key) {
+    if (_finishMats[key]) return _finishMats[key];
+    var f = FINISHES[key], tex = finishTexture(key);
+    function mat(tint, rough, bump) {
+      return new THREE.MeshStandardMaterial({ color: tint, roughness: rough, metalness: f.metal, map: tex, bumpMap: tex, bumpScale: bump });
+    }
+    _finishMats[key] = {
+      stone: mat(0xffffff, f.rough, f.bump),
+      stoneDark: mat(0xa6a29c, Math.min(1, f.rough + 0.08), f.bump * 1.4),
+      stoneWarm: mat(0xf4ebdc, f.rough, f.bump),
+      gold: new THREE.MeshStandardMaterial({ color: 0xe8b84b, roughness: 0.32, metalness: 0.85, emissive: 0x3a2a08, emissiveIntensity: 0.45 })
+    };
+    return _finishMats[key];
+  }
+
+  /* Box-project UVs from each vertex's position, so the grain keeps the same
+     scale on every face instead of stretching 0..1 across long sides. */
+  var TEX_WORLD = 1.4;   // world units covered by one tile of the texture
+  function worldUVs(root) {
+    root.updateMatrixWorld(true);
+    root.traverse(function (o) {
+      if (!o.isMesh || !o.geometry.attributes.normal) return;
+      var geo = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry;
+      var p = geo.attributes.position, n = geo.attributes.normal;
+      var uv = new Float32Array(p.count * 2);
+      var v = new THREE.Vector3(), nv = new THREE.Vector3();
+      var nm = new THREE.Matrix3().getNormalMatrix(o.matrixWorld);
+      for (var i = 0; i < p.count; i++) {
+        v.fromBufferAttribute(p, i).applyMatrix4(o.matrixWorld);
+        nv.fromBufferAttribute(n, i).applyMatrix3(nm);
+        var ax = Math.abs(nv.x), ay = Math.abs(nv.y), az = Math.abs(nv.z);
+        var u, w;
+        if (ay >= ax && ay >= az) { u = v.x; w = v.z; }
+        else if (ax >= az) { u = v.z; w = v.y; }
+        else { u = v.x; w = v.y; }
+        uv[i * 2] = u / TEX_WORLD;
+        uv[i * 2 + 1] = w / TEX_WORLD;
+      }
+      geo.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
+      o.geometry = geo;
+    });
+  }
+
   /* ---------- shared materials ---------- */
   function mats() {
     var tex = stoneTexture();
@@ -371,7 +470,9 @@
     var holder = new THREE.Group();
     scene.add(holder);
 
-    var m = mats();
+    /* each model opens in its own finish; a swatch click re-dresses it */
+    var finishFor = { pillar: "grey", mandapam: "black", paving: "red", gopuram: "sand" };
+    var m = finishMats("grey");
 
     function carveRings(mesh, radius, count, from, step) {
       for (var i = 0; i < count; i++) {
@@ -457,7 +558,9 @@
       gopuram: ["Gopuram Block", "Stacked, tapering tower blocks with cornice lips — the stepped units that form a temple gopuram."]
     };
 
-    var current = null, modelH = 3;
+    var current = null, currentKey = "pillar", modelH = 3;
+    var swatches = document.querySelectorAll(".viewer__finishes button");
+    var finishName = document.getElementById("viewerFinish");
 
     /* Centre whatever model is showing, then fit it by its bounding SPHERE so
        nothing can clip at any rotation. Flat, wide pieces (paving, mandapam)
@@ -502,13 +605,32 @@
 
     function show(key) {
       if (current) holder.remove(current);
+      currentKey = key;
+      var fk = finishFor[key];
+      m = finishMats(fk);
       current = models[key]();
+      worldUVs(current);   // before parenting, so the holder's spin isn't baked in
       holder.add(current);
       frame();
       var c = document.getElementById("viewerCopy");
       if (c && copy[key]) c.innerHTML = "<h3>" + copy[key][0] + "</h3><p>" + copy[key][1] + "</p>";
+      swatches.forEach(function (s) {
+        var on = s.getAttribute("data-finish") === fk;
+        s.classList.toggle("is-active", on);
+        s.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      if (finishName) finishName.textContent = FINISHES[fk].label;
     }
     show("pillar");
+
+    swatches.forEach(function (s) {
+      var tex = finishTexture(s.getAttribute("data-finish"));
+      s.style.backgroundImage = "url(" + tex.swatch + ")";
+      s.addEventListener("click", function () {
+        finishFor[currentKey] = s.getAttribute("data-finish");
+        show(currentKey);
+      });
+    });
 
     var tabs = document.querySelectorAll(".viewer__tabs button");
     tabs.forEach(function (b) {
