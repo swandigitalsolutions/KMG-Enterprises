@@ -7,22 +7,22 @@
 <meta name="color-scheme" content="light" />
 
 <!-- ============================================================
-     SITE URL — the live Cloudflare address. If a custom domain is
-     connected, replace this domain everywhere (canonical, OG,
-     JSON-LD, sitemap.xml, robots.txt) and re-submit the sitemap.
+     SITE URL — https://www.kmgstones.com is the one address Google
+     should index. The workers.dev copy serves the same files, so
+     every page names www.kmgstones.com as canonical. If the domain
+     ever changes, replace it everywhere (canonical, OG, JSON-LD,
+     sitemap.xml, robots.txt) and re-submit the sitemap.
      ============================================================ -->
-<link rel="canonical" href="https://kmg-stones.swandigitalsolutions.workers.dev/" />
-<link rel="alternate" hreflang="en-IN" href="https://kmg-stones.swandigitalsolutions.workers.dev/" />
-<link rel="alternate" hreflang="x-default" href="https://kmg-stones.swandigitalsolutions.workers.dev/" />
+<link rel="canonical" href="https://www.kmgstones.com/" />
+<link rel="alternate" hreflang="en-IN" href="https://www.kmgstones.com/" />
+<link rel="alternate" hreflang="x-default" href="https://www.kmgstones.com/" />
 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-<title>KMG Stones | Temple Construction, Temple Stone &amp; Parking Stone Manufacturers in India</title>
-<meta name="description" content="KMG Stones builds temples and manufactures temple stone, carved pillars, gopuram blocks, mandapam stone and parking / paving stones from our own stone factory. Custom stone work and pan-India supply, transportation and installation." />
-<meta name="keywords" content="temple construction, temple stone manufacturers, temple stone supplier, stone carving, gopuram stone, mandapam stone, temple pillars, parking stones, paving stones, granite paver, stone factory India, custom temple stone work" />
+<title>KMG Stones | Temple Stone Manufacturers &amp; Temple Builders</title>
+<meta name="description" content="KMG Stones makes granite temple stone — carved pillars, gopuram &amp; mandapam stone — builds complete temples, and supplies parking &amp; paving stones across India." />
+<meta name="keywords" content="KMG Stones, temple stone manufacturers, temple construction, granite temple pillars, temple stone supplier, stone carving, gopuram stone, mandapam stone, parking stones, paving stones, granite pavers, black granite idols, stone factory Karnataka, temple builders India" />
 <meta name="author" content="KMG Stones" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="googlebot" content="index, follow" />
-<meta name="rating" content="general" />
 <meta name="format-detection" content="telephone=yes" />
 
 <!-- Geo / local SEO -->
@@ -34,21 +34,22 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="KMG Stones" />
-<meta property="og:title" content="KMG Stones — From Stone to Temple, with Tradition &amp; Precision" />
+<meta property="og:title" content="KMG Stones — Temple Stone Manufacturers &amp; Temple Builders" />
 <meta property="og:description" content="Temple construction, temple stone manufacturing, stone carving and parking / paving stones — powered by our own stone factory. Projects across India." />
-<meta property="og:url" content="https://kmg-stones.swandigitalsolutions.workers.dev/" />
-<meta property="og:image" content="https://kmg-stones.swandigitalsolutions.workers.dev/assets/img/og-cover.jpg" />
+<meta property="og:url" content="https://www.kmgstones.com/" />
+<meta property="og:image" content="https://www.kmgstones.com/assets/img/og-cover.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:alt" content="KMG Stones — temple stone &amp; construction" />
+<meta property="og:logo" content="https://www.kmgstones.com/assets/img/icon-512.png" />
 <meta property="og:locale" content="en_IN" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="KMG Stones — Temple Construction &amp; Stone Manufacturing" />
 <meta name="twitter:description" content="Temple construction, temple stone, stone carving and parking stones from our own stone factory. Pan-India." />
-<meta name="twitter:image" content="https://kmg-stones.swandigitalsolutions.workers.dev/assets/img/og-cover.jpg" />
+<meta name="twitter:image" content="https://www.kmgstones.com/assets/img/og-cover.jpg" />
 <meta name="twitter:image:alt" content="KMG Stones — a completed granite temple with carved gopuram" />
 
 <!-- ============================================================
@@ -66,12 +67,14 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preload" as="image" href="assets/img/site/hero-temple.jpg" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css?v=7a52808c" />
+<link rel="stylesheet" href="assets/css/style.css?v=23574bfc" />
 <link rel="manifest" href="site.webmanifest" />
-<!-- Google shows this icon beside the site in search results -->
-<link rel="icon" href="/favicon.ico" sizes="48x48" />
-<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+<!-- Favicon — Google shows this beside the site in search results.
+     It must be square, a multiple of 48px, and at a stable URL. -->
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />
 
 <!-- ============================================================
      STRUCTURED DATA (JSON-LD) — Organization / LocalBusiness,
@@ -83,13 +86,15 @@
   "@graph": [
     {
       "@type": ["Organization", "GeneralContractor", "HomeAndConstructionBusiness"],
-      "@id": "https://kmg-stones.swandigitalsolutions.workers.dev/#business",
+      "@id": "https://www.kmgstones.com/#business",
       "name": "KMG Stones",
-      "alternateName": "KMG Temple Stone",
+      "alternateName": ["KMG Temple Stone", "KMG Enterprises"],
+      "slogan": "Crafting Divine Stone Heritage",
       "description": "Temple construction, temple stone manufacturing, stone carving and parking / paving stone supply from an own stone factory. Serving projects across India.",
-      "url": "https://kmg-stones.swandigitalsolutions.workers.dev/",
-      "logo": "https://kmg-stones.swandigitalsolutions.workers.dev/assets/img/logo.png",
-      "image": "https://kmg-stones.swandigitalsolutions.workers.dev/assets/img/logo.png",
+      "url": "https://www.kmgstones.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.kmgstones.com/assets/img/icon-512.png", "width": 512, "height": 512 },
+      "image": ["https://www.kmgstones.com/assets/img/og-cover.jpg", "https://www.kmgstones.com/assets/img/logo.png"],
+      "knowsAbout": ["Temple construction", "Temple stone manufacturing", "Granite stone carving", "Temple pillars", "Gopuram construction", "Mandapam stone", "Parking and paving stones", "Granite idols"],
       "telephone": "+91-91083-18319",
       "priceRange": "₹₹",
       "currenciesAccepted": "INR",
@@ -132,16 +137,17 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://kmg-stones.swandigitalsolutions.workers.dev/#website",
-      "url": "https://kmg-stones.swandigitalsolutions.workers.dev/",
+      "@id": "https://www.kmgstones.com/#website",
+      "url": "https://www.kmgstones.com/",
       "name": "KMG Stones",
-      "publisher": { "@id": "https://kmg-stones.swandigitalsolutions.workers.dev/#business" },
+      "alternateName": "KMG Temple Stone",
+      "publisher": { "@id": "https://www.kmgstones.com/#business" },
       "inLanguage": "en-IN"
     },
     {
       "@type": "Service",
       "serviceType": "Temple construction and temple stone manufacturing",
-      "provider": { "@id": "https://kmg-stones.swandigitalsolutions.workers.dev/#business" },
+      "provider": { "@id": "https://www.kmgstones.com/#business" },
       "areaServed": { "@type": "Country", "name": "India" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -262,7 +268,7 @@
       </div>
       <div class="hero__veil" aria-hidden="true"></div>
       <div class="hero__content">
-        <p class="kicker kicker--center">KMG&nbsp;Enterprises</p>
+        <p class="kicker kicker--center">KMG&nbsp;Stones</p>
         <h1 class="hero__title">From Stone to Temple<br /><span>With Tradition &amp; Precision</span></h1>
         <p class="hero__lede">Temple stone manufacturing, traditional craftsmanship, parking stones and complete temple construction — powered by our own stone factory and a skilled team.</p>
         <div class="hero__chips">
@@ -830,8 +836,8 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="assets/js/scene.js?v=b0f6dbb0" defer></script>
-  <script src="assets/js/app.js?v=f47bfbdc" defer></script>
-  <script src="assets/js/assistant.js?v=3fb00b27" defer></script>
+  <script src="assets/js/scene.js?v=7565f8d9" defer></script>
+  <script src="assets/js/app.js?v=ef08d15a" defer></script>
+  <script src="assets/js/assistant.js?v=aea5f893" defer></script>
 </body>
 </html>
